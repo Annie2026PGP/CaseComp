@@ -3,12 +3,32 @@
 **Prompt:** In 400-500 words, outline the proposed approach to transforming
 StyleVerse's Retail Operations using AI, to the Executive Leadership Team.
 
-**Status:** v3 is the submission candidate (449 words). Supporting data and
-citations in `../research/market-benchmarks.md`.
+**Status:** v4 is the submission candidate (398 words, plain prose for
+direct paste). v3 retained below as the longer variant if the 400-500 range
+is preferred. Supporting data and citations in
+`../research/market-benchmarks.md`.
 
 ---
 
-## v3 — submission candidate (449 words)
+## v4 — submission candidate (398 words, copy-paste ready)
+
+StyleVerse's margin problem starts long before a customer walks into a store. Discounting across Indian apparel is now structural: average listed discounts on Myntra went from 28% in 2020 to 43% in 2025, and Wazir Advisors found 60-73% of high-volume styles now clear at over half off. That is a buying problem, not a selling one. You commit inventory six to nine months ahead of a trend you cannot see, then pay for the guess at end of season.
+
+We would put the first ₹75 Crore into AI demand sensing, size-curve planning and markdown optimisation. Comparable apparel retailers have recovered 2 to 2.8 points of gross margin doing this. On ₹5,600 Crore that is roughly ₹110-155 Crore a year, repaying the entire ₹200 Crore programme in under two years, across all five brands.
+
+On the workforce question, we would push back on the framing. 42% attrition sounds alarming, but Indian blue-collar retail typically runs 45-75%. StyleVerse is already ahead of its sector; we would not spend transformation money chasing it.
+
+What matters more is what high churn means for AI. The best field evidence, from Brynjolfsson, Li and Raymond in the Quarterly Journal of Economics, found AI assistants lifted productivity 14% on average, but 34% for newer staff and barely at all for experienced ones. A shop floor where half the team has under a year's tenure is therefore the ideal place for a copilot, not a risky one. The copilot is not there to automate tasks. It is there to make a three-month associate sell like a two-year one. That is ₹40 Crore, with the reskilling academy.
+
+Your 200 stores are also worth more than the balance sheet suggests. Myntra now delivers fashion in 30 minutes, Slikk in 60. Those players are building dark stores from scratch; you already have 200 in the right neighbourhoods holding real stock. ₹30 Crore on unified inventory visibility turns that estate into a fulfilment network they cannot easily copy.
+
+The remaining ₹55 Crore joins up your 18 million customer records, doing different jobs by brand: inventory turn at value and fast fashion, personal styling at luxury and premium.
+
+Finally, Zero-Layoff. At 42% attrition you release roughly 8,000 roles a year, so anything automation absorbs is covered by not backfilling. Nobody needs to be let go. The promise costs little, and staying quiet is costing a lot. Say it in week one.
+
+---
+
+## v3 — longer variant (449 words)
 
 India's apparel margin crisis is a forecasting crisis. Start there.
 
