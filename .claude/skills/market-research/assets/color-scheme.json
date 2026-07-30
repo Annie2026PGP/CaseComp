@@ -1,0 +1,161 @@
+{
+  "name": "Professional Market Research Palette",
+  "description": "Professional color scheme for MBB-grade presentations. Avoids AI slop patterns (no purple gradients, no #6366f1).",
+  "version": "1.0",
+
+  "primary": {
+    "dark": {
+      "hex": "#141413",
+      "rgb": "20, 20, 19",
+      "usage": "Headings, primary text, strong emphasis"
+    },
+    "light": {
+      "hex": "#FAF9F5",
+      "rgb": "250, 249, 245",
+      "usage": "Backgrounds, content boxes, subtle contrast"
+    }
+  },
+
+  "accents": {
+    "blue": {
+      "hex": "#6A9BCC",
+      "rgb": "106, 155, 204",
+      "usage": "Data visualization, section headers, links, professional emphasis"
+    },
+    "orange": {
+      "hex": "#D97757",
+      "rgb": "217, 119, 87",
+      "usage": "Highlights, warnings, secondary emphasis, call-to-action"
+    },
+    "green": {
+      "hex": "#788C5D",
+      "rgb": "120, 140, 93",
+      "usage": "Success states, positive metrics, growth indicators"
+    }
+  },
+
+  "text": {
+    "dark": {
+      "hex": "#2C2C2C",
+      "rgb": "44, 44, 44",
+      "usage": "Body text, primary content"
+    },
+    "medium": {
+      "hex": "#5A5A5A",
+      "rgb": "90, 90, 90",
+      "usage": "Secondary text, captions, less emphasized content"
+    },
+    "light": {
+      "hex": "#8A8A8A",
+      "rgb": "138, 138, 138",
+      "usage": "Tertiary text, footers, metadata"
+    }
+  },
+
+  "borders": {
+    "primary": {
+      "hex": "#E0E0E0",
+      "rgb": "224, 224, 224",
+      "usage": "Subtle borders, dividers"
+    },
+    "accent": {
+      "hex": "#6A9BCC",
+      "rgb": "106, 155, 204",
+      "usage": "Emphasized borders, section separators"
+    }
+  },
+
+  "backgrounds": {
+    "white": {
+      "hex": "#FFFFFF",
+      "rgb": "255, 255, 255",
+      "usage": "Primary slide background"
+    },
+    "light": {
+      "hex": "#FAF9F5",
+      "rgb": "250, 249, 245",
+      "usage": "Content boxes, callouts"
+    },
+    "subtle": {
+      "hex": "#F5F5F5",
+      "rgb": "245, 245, 245",
+      "usage": "Alternating sections"
+    }
+  },
+
+  "charts": {
+    "sequence": [
+      "#6A9BCC",
+      "#D97757",
+      "#788C5D",
+      "#4A7BA7",
+      "#B85C3E",
+      "#5A6E45"
+    ],
+    "description": "Use in order for multi-series charts. Avoid using all at once if possible."
+  },
+
+  "semantic": {
+    "success": "#788C5D",
+    "warning": "#D97757",
+    "error": "#B85C3E",
+    "info": "#6A9BCC"
+  },
+
+  "antiPatterns": {
+    "description": "Colors to AVOID (AI slop indicators)",
+    "avoid": [
+      "#6366F1",
+      "#8B5CF6",
+      "#A855F7",
+      "#C084FC"
+    ],
+    "reasoning": "Purple gradients and Tailwind default purples are overused in AI-generated designs. Use professional blues and earth tones instead."
+  },
+
+  "usage_guidelines": {
+    "hierarchy": [
+      "Use primary dark (#141413) for main headings",
+      "Use accent blue (#6A9BCC) for subheadings",
+      "Use text dark (#2C2C2C) for body content",
+      "Use text light (#8A8A8A) for footers and metadata"
+    ],
+    "emphasis": [
+      "Accent orange (#D97757) for critical callouts",
+      "Accent green (#788C5D) for positive metrics",
+      "Highlight boxes with colored left border (not full background)"
+    ],
+    "balance": [
+      "90% neutral (primary dark, text colors, white)",
+      "10% accent colors (strategic emphasis only)",
+      "Avoid rainbow effects - limit to 2-3 colors per slide"
+    ],
+    "professionalism": [
+      "Left-align text (not center-align everything)",
+      "Use subtle backgrounds, not gradients",
+      "Asymmetric layouts preferred over perfect symmetry",
+      "White space is professional - don't fill every pixel"
+    ]
+  },
+
+  "accessibility": {
+    "contrast_ratios": {
+      "dark_on_white": "15.3:1 (WCAG AAA)",
+      "blue_on_white": "3.8:1 (WCAG AA)",
+      "orange_on_white": "3.2:1 (WCAG AA)",
+      "green_on_white": "4.1:1 (WCAG AA)"
+    },
+    "recommendations": [
+      "Always use dark text (#141413 or #2C2C2C) on light backgrounds",
+      "Use white text on dark/accent backgrounds",
+      "Test readability at presentation distance (not just screen)"
+    ]
+  },
+
+  "pptx_specific": {
+    "note": "When using with document-skills/pptx html2pptx workflow",
+    "css_format": "Use hex without # prefix in PptxGenJS calls to avoid file corruption",
+    "hex_in_html": "#6A9BCC (correct in HTML/CSS)",
+    "hex_in_pptxgenjs": "6A9BCC (correct in PptxGenJS library - omit #)"
+  }
+}

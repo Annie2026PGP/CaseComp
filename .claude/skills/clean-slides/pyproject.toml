@@ -1,0 +1,84 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "clean-slides"
+version = "0.1.0"
+description = "Generate consulting-style PowerPoint tables from YAML"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+keywords = ["powerpoint", "pptx", "slides", "consulting", "tables"]
+
+dependencies = [
+    "python-pptx>=0.6.21",
+    "PyYAML>=6.0",
+    "lxml>=4.9.0",
+    "typing-extensions>=4.0",
+    # render/crop
+    "Pillow>=10.0.0",
+    "pdf2image>=1.17.0",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=7.0",
+]
+dev = [
+    "clean-slides[test]",
+    "black",
+    "ruff",
+    "pre-commit",
+    "pyright>=1.1.408",
+    "python-pptx-stubs>=1.0.2.post1",
+    "lxml-stubs>=0.5.1",
+    "types-PyYAML",
+]
+
+[project.scripts]
+pptx = "clean_slides.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["clean_slides*"]
+
+[tool.setuptools.package-data]
+clean_slides = [
+    "template-config.yaml",
+    "example-template/*",
+]
+
+[tool.black]
+line-length = 100
+target-version = ["py39"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = [
+    "E", "W",   # pycodestyle
+    "F",         # pyflakes
+    "I",         # isort
+    "B",         # flake8-bugbear — catches real bugs
+    "UP",        # pyupgrade — modernise syntax to 3.9+
+    "SIM",       # flake8-simplify
+    "C4",        # flake8-comprehensions
+    "PIE",       # misc useful lints
+    "RUF",       # ruff-specific rules
+    "PT",        # flake8-pytest-style
+]
+ignore = [
+    "E501",      # line length — Black handles this
+    "UP007",     # X | Y unions — needs 3.10+, we target 3.9
+    "SIM108",    # ternary over if/else — often less readable
+    "RUF001",    # ambiguous unicode — intentional typographic chars in docstrings
+    "RUF002",    # ambiguous unicode in docstrings
+    "RUF003",    # ambiguous unicode in comments
+    "PT009",     # unittest-style assertions — existing tests use unittest.TestCase
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["clean_slides"]

@@ -1,0 +1,15 @@
+# Claude Code local overrides (machine-specific, not shared)
+.claude/settings.local.json
+
+# OS/editor junk
+.DS_Store
+Thumbs.db
+*.swp
+
+# Temp/export files
+*.tmp
+~$*
+
+# Python build artifacts (from `pip install -e .claude/skills/clean-slides`)
+__pycache__/
+*.egg-info/
