@@ -9,3 +9,7 @@ Thumbs.db
 # Temp/export files
 *.tmp
 ~$*
+
+# Python build artifacts (from `pip install -e .claude/skills/clean-slides`)
+__pycache__/
+*.egg-info/

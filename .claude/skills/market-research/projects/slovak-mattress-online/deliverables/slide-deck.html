@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Research Presentation - Slide Deck</title>
+    <style>
+        /* Base slide dimensions: 16:9 aspect ratio */
+        .slide {
+            width: 720pt;
+            height: 405pt;
+            position: relative;
+            page-break-after: always;
+            background: #FFFFFF;
+            font-family: Arial, Helvetica, sans-serif;
+            box-sizing: border-box;
+            padding: 40pt;
+        }
+
+        /* Professional color scheme (no AI slop purple gradients) */
+        :root {
+            --primary-dark: #141413;
+            --primary-light: #FAF9F5;
+            --accent-blue: #6A9BCC;
+            --accent-orange: #D97757;
+            --accent-green: #788C5D;
+            --text-dark: #2C2C2C;
+            --text-medium: #5A5A5A;
+            --text-light: #8A8A8A;
+        }
+
+        /* Typography - ALL TEXT MUST BE IN SEMANTIC TAGS */
+        h1 {
+            font-size: 36pt;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin: 0 0 20pt 0;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 28pt;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin: 0 0 16pt 0;
+            line-height: 1.2;
+        }
+
+        h3 {
+            font-size: 20pt;
+            font-weight: 600;
+            color: var(--accent-blue);
+            margin: 0 0 12pt 0;
+            line-height: 1.3;
+        }
+
+        p {
+            font-size: 14pt;
+            color: var(--text-dark);
+            line-height: 1.6;
+            margin: 0 0 12pt 0;
+        }
+
+        ul, ol {
+            font-size: 14pt;
+            color: var(--text-dark);
+            line-height: 1.8;
+            margin: 0 0 12pt 0;
+            padding-left: 24pt;
+        }
+
+        li {
+            margin-bottom: 8pt;
+        }
+
+        /* Layout helpers */
+        .header {
+            border-bottom: 2pt solid var(--accent-blue);
+            padding-bottom: 12pt;
+            margin-bottom: 20pt;
+        }
+
+        .content-box {
+            background: var(--primary-light);
+            border-left: 4pt solid var(--accent-orange);
+            padding: 16pt;
+            margin: 16pt 0;
+        }
+
+        .two-column {
+            display: flex;
+            gap: 20pt;
+        }
+
+        .column {
+            flex: 1;
+        }
+
+        .highlight-box {
+            background: var(--accent-green);
+            color: #FFFFFF;
+            padding: 12pt 16pt;
+            margin: 12pt 0;
+            border-radius: 4pt;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 20pt;
+            left: 40pt;
+            right: 40pt;
+            font-size: 10pt;
+            color: var(--text-light);
+            border-top: 1pt solid #E0E0E0;
+            padding-top: 8pt;
+        }
+
+        /* Professional styling - avoiding AI slop patterns */
+        /* NO: centered everything, purple gradients, uniform rounded corners */
+        /* YES: left-aligned, professional blues/greens, subtle accents */
+
+        strong, b {
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        em, i {
+            font-style: italic;
+        }
+
+        u {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<!-- SLIDE 1: TITLE SLIDE -->
+<div class="slide">
+    <div style="display: flex; flex-direction: column; justify-content: center; height: 100%; text-align: center;">
+        <h1>slovak-mattress-online Market Research</h1>
+        <h2 style="color: var(--text-medium); font-weight: 400; margin-top: 20pt;">
+            Market Research & Strategic Analysis
+        </h2>
+        <p style="margin-top: 40pt; font-size: 16pt;">
+            <strong>Client:</strong> slovak-mattress-online
+        </p>
+        <p style="margin-top: 8pt; font-size: 16pt;">
+            <strong>Industry:</strong> e-commerce-furniture
+        </p>
+        <p style="margin-top: 8pt; font-size: 16pt;">
+            <strong>Date:</strong> 2025-10-30
+        </p>
+        <p style="margin-top: 32pt; font-size: 12pt; color: var(--text-light);">
+            Prepared by: [Analyst Name]
+        </p>
+    </div>
+</div>
+
+<!-- SLIDE 2: EXECUTIVE SUMMARY -->
+<div class="slide">
+    <div class="header">
+        <h2>Executive Summary</h2>
+        <p style="font-size: 12pt; color: var(--text-medium); margin: 0;">
+            Key findings from pyramid analysis
+        </p>
+    </div>
+
+    <div class="content-box">
+        <h3>Market Opportunity</h3>
+        <p>
+            [One sentence capturing the most important market-level insight.
+            Example: "$4.1B market growing at 12% CAGR presents significant expansion opportunity in underserved segments."]
+        </p>
+    </div>
+
+    <div class="content-box">
+        <h3>Customer Insight</h3>
+        <p>
+            [One sentence capturing the most critical customer need or barrier.
+            Example: "78% of target customers cite lack of affordable solutions as primary purchase barrier."]
+        </p>
+    </div>
+
+    <div class="content-box">
+        <h3>Competitive Dynamic</h3>
+        <p>
+            [One sentence capturing competitive landscape reality.
+            Example: "Market is fragmented with no dominant player, creating positioning opportunity."]
+        </p>
+    </div>
+
+    <div class="highlight-box">
+        <h3 style="color: #FFFFFF; margin-bottom: 8pt;">Recommendation</h3>
+        <p style="color: #FFFFFF; font-size: 16pt; margin: 0;">
+            [Primary strategic recommendation based on pyramid analysis]
+        </p>
+    </div>
+
+    <div class="footer">
+        <p style="margin: 0;">Source: [Brief source reference] | [Page number]</p>
+    </div>
+</div>
+
+<!-- SLIDE 3: SEGMENT & MARKET ANALYSIS (Pyramid Level 4 - Bottom) -->
+<div class="slide">
+    <div class="header">
+        <h2>Market & Segment Analysis</h2>
+        <p style="font-size: 12pt; color: var(--text-medium); margin: 0;">
+            Pyramid Level 4: Market foundation
+        </p>
+    </div>
+
+    <div class="two-column">
+        <div class="column">
+            <h3>Market Size & Growth</h3>
+            <ul>
+                <li><strong>TAM:</strong> $[X]B ([Year])</li>
+                <li><strong>SAM:</strong> $[X]B ([Y]% of TAM)</li>
+                <li><strong>SOM:</strong> $[X]M ([Z]% of SAM)</li>
+                <li><strong>CAGR:</strong> [X]% (20XX-20XX)</li>
+            </ul>
+
+            <h3 style="margin-top: 20pt;">Key Segments</h3>
+            <ul>
+                <li><strong>Segment A:</strong> $[X]B ([Y]%)</li>
+                <li><strong>Segment B:</strong> $[X]B ([Y]%)</li>
+                <li><strong>Segment C:</strong> $[X]B ([Y]%)</li>
+            </ul>
+        </div>
+
+        <div class="column">
+            <h3>Market Trends</h3>
+            <ol>
+                <li>
+                    <strong>[Trend 1]:</strong> [Brief description and impact]
+                </li>
+                <li>
+                    <strong>[Trend 2]:</strong> [Brief description and impact]
+                </li>
+                <li>
+                    <strong>[Trend 3]:</strong> [Brief description and impact]
+                </li>
+            </ol>
+
+            <div class="highlight-box" style="margin-top: 20pt;">
+                <p style="color: #FFFFFF; margin: 0;">
+                    <strong>Key Insight:</strong> [Critical market-level takeaway]
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p style="margin: 0;">Sources: [List 2-3 key sources] | [Page number]</p>
+    </div>
+</div>
+
+<!-- SLIDE 4: CUSTOMER INSIGHTS (Pyramid Level 3) -->
+<div class="slide">
+    <div class="header">
+        <h2>Customer Insights</h2>
+        <p style="font-size: 12pt; color: var(--text-medium); margin: 0;">
+            Pyramid Level 3: Understanding customer needs & behaviors
+        </p>
+    </div>
+
+    <div class="two-column">
+        <div class="column">
+            <h3>Primary Customer Segments</h3>
+            <p>
+                <strong>Segment A ([X]%):</strong> [Key characteristics]
+            </p>
+            <p>
+                <strong>Segment B ([X]%):</strong> [Key characteristics]
+            </p>
+            <p>
+                <strong>Segment C ([X]%):</strong> [Key characteristics]
+            </p>
+
+            <h3 style="margin-top: 16pt;">Top Purchase Barriers</h3>
+            <ol>
+                <li><strong>[Barrier 1]:</strong> [X]% cite this</li>
+                <li><strong>[Barrier 2]:</strong> [X]% cite this</li>
+                <li><strong>[Barrier 3]:</strong> [X]% cite this</li>
+            </ol>
+        </div>
+
+        <div class="column">
+            <h3>Key Customer Needs</h3>
+            <ol>
+                <li>
+                    <strong>[Need 1]:</strong> [Importance level - X/10]
+                    <p style="font-size: 12pt; margin: 4pt 0 0 0;">[Brief description]</p>
+                </li>
+                <li style="margin-top: 8pt;">
+                    <strong>[Need 2]:</strong> [Importance level - X/10]
+                    <p style="font-size: 12pt; margin: 4pt 0 0 0;">[Brief description]</p>
+                </li>
+                <li style="margin-top: 8pt;">
+                    <strong>[Need 3]:</strong> [Importance level - X/10]
+                    <p style="font-size: 12pt; margin: 4pt 0 0 0;">[Brief description]</p>
+                </li>
+            </ol>
+
+            <div class="highlight-box" style="margin-top: 12pt;">
+                <p style="color: #FFFFFF; margin: 0;">
+                    <strong>Critical Insight:</strong> [Most underserved customer need]
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p style="margin: 0;">Sources: [List 2-3 key sources] | [Page number]</p>
+    </div>
+</div>
+
+<!-- SLIDE 5: COMPETITIVE LANDSCAPE (Pyramid Level 2) -->
+<div class="slide">
+    <div class="header">
+        <h2>Competitive Landscape</h2>
+        <p style="font-size: 12pt; color: var(--text-medium); margin: 0;">
+            Pyramid Level 2: Market positioning & competitive dynamics
+        </p>
+    </div>
+
+    <h3>Top Competitors</h3>
+
+    <div class="content-box">
+        <p style="margin: 0;">
+            <strong>Competitor 1:</strong> [X]% market share |
+            <em>Positioning:</em> [Brief description] |
+            <em>Key strength:</em> [Strength]
+        </p>
+    </div>
+
+    <div class="content-box">
+        <p style="margin: 0;">
+            <strong>Competitor 2:</strong> [X]% market share |
+            <em>Positioning:</em> [Brief description] |
+            <em>Key strength:</em> [Strength]
+        </p>
+    </div>
+
+    <div class="content-box">
+        <p style="margin: 0;">
+            <strong>Competitor 3:</strong> [X]% market share |
+            <em>Positioning:</em> [Brief description] |
+            <em>Key strength:</em> [Strength]
+        </p>
+    </div>
+
+    <h3 style="margin-top: 20pt;">Competitive Gaps & Opportunities</h3>
+    <ul>
+        <li><strong>Gap 1:</strong> [Customer need poorly addressed by all competitors]</li>
+        <li><strong>Gap 2:</strong> [Positioning white space]</li>
+        <li><strong>Gap 3:</strong> [Market segment underserved]</li>
+    </ul>
+
+    <div class="highlight-box">
+        <p style="color: #FFFFFF; margin: 0;">
+            <strong>Strategic Insight:</strong> [Where differentiation opportunity exists]
+        </p>
+    </div>
+
+    <div class="footer">
+        <p style="margin: 0;">Sources: [List 2-3 key sources] | [Page number]</p>
+    </div>
+</div>
+
+<!-- SLIDE 6: YOUR COMPANY POSITION (Pyramid Level 1 - Top) -->
+<div class="slide">
+    <div class="header">
+        <h2>Your Company Position</h2>
+        <p style="font-size: 12pt; color: var(--text-medium); margin: 0;">
+            Pyramid Level 1: Strategic fit & positioning
+        </p>
+    </div>
+
+    <div class="two-column">
+        <div class="column">
+            <h3>Key Strengths</h3>
+            <ul>
+                <li><strong>[Strength 1]:</strong> [How this addresses market need]</li>
+                <li><strong>[Strength 2]:</strong> [How this addresses market need]</li>
+                <li><strong>[Strength 3]:</strong> [How this addresses market need]</li>
+            </ul>
+
+            <h3 style="margin-top: 16pt;">Critical Gaps</h3>
+            <ul>
+                <li><strong>[Gap 1]:</strong> [What capability is missing]</li>
+                <li><strong>[Gap 2]:</strong> [What capability is missing]</li>
+            </ul>
+        </div>
+
+        <div class="column">
+            <h3>Strategic Fit Analysis</h3>
+            <p>
+                <strong>Best opportunity:</strong> [Opportunity name]
+            </p>
+            <ul style="margin: 8pt 0;">
+                <li>Market size: $[X]B</li>
+                <li>Strength alignment: <strong>[High/Med/Low]</strong></li>
+                <li>Competitive intensity: <strong>[Low/Med/High]</strong></li>
+            </ul>
+
+            <h3 style="margin-top: 16pt;">Recommended Positioning</h3>
+            <div class="content-box">
+                <p style="font-size: 16pt; margin: 0;">
+                    <strong>[Positioning statement]</strong>
+                </p>
+                <p style="margin: 8pt 0 0 0; font-size: 12pt;">
+                    Target: [Segment] | Value: [Key differentiator]
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p style="margin: 0;">Internal assessment + external benchmarking | [Page number]</p>
+    </div>
+</div>
+
+<!-- SLIDE 7: STRATEGIC RECOMMENDATIONS -->
+<div class="slide">
+    <div class="header">
+        <h2>Strategic Recommendations</h2>
+        <p style="font-size: 12pt; color: var(--text-medium); margin: 0;">
+            Actionable priorities based on pyramid analysis
+        </p>
+    </div>
+
+    <div class="highlight-box">
+        <h3 style="color: #FFFFFF; margin-bottom: 8pt;">Primary Recommendation</h3>
+        <p style="color: #FFFFFF; font-size: 16pt; margin: 0;">
+            [One-sentence primary strategic recommendation]
+        </p>
+    </div>
+
+    <h3 style="margin-top: 20pt;">Supporting Priorities</h3>
+
+    <div class="content-box">
+        <p style="margin: 0;">
+            <strong>1. [Recommendation 1]</strong> | Priority: <em>Critical</em>
+        </p>
+        <ul style="margin: 8pt 0 0 0; font-size: 12pt;">
+            <li>Rationale: [Why this matters based on analysis]</li>
+            <li>Impact: [Expected outcome]</li>
+            <li>Timeline: [X] months</li>
+        </ul>
+    </div>
+
+    <div class="content-box">
+        <p style="margin: 0;">
+            <strong>2. [Recommendation 2]</strong> | Priority: <em>High</em>
+        </p>
+        <ul style="margin: 8pt 0 0 0; font-size: 12pt;">
+            <li>Rationale: [Why this matters based on analysis]</li>
+            <li>Impact: [Expected outcome]</li>
+            <li>Timeline: [X] months</li>
+        </ul>
+    </div>
+
+    <div class="content-box">
+        <p style="margin: 0;">
+            <strong>3. [Recommendation 3]</strong> | Priority: <em>Medium</em>
+        </p>
+        <ul style="margin: 8pt 0 0 0; font-size: 12pt;">
+            <li>Rationale: [Why this matters based on analysis]</li>
+            <li>Impact: [Expected outcome]</li>
+            <li>Timeline: [X] months</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p style="margin: 0;">Based on comprehensive pyramid analysis | [Page number]</p>
+    </div>
+</div>
+
+<!-- SLIDE 8: NEXT STEPS & IMPLEMENTATION -->
+<div class="slide">
+    <div class="header">
+        <h2>Next Steps & Implementation</h2>
+        <p style="font-size: 12pt; color: var(--text-medium); margin: 0;">
+            Roadmap for executing recommendations
+        </p>
+    </div>
+
+    <div class="two-column">
+        <div class="column">
+            <h3>Immediate (0-6 months)</h3>
+            <ol>
+                <li>
+                    <strong>[Action 1]</strong>
+                    <p style="font-size: 12pt; margin: 4pt 0 0 0;">Owner: [Name]</p>
+                </li>
+                <li style="margin-top: 8pt;">
+                    <strong>[Action 2]</strong>
+                    <p style="font-size: 12pt; margin: 4pt 0 0 0;">Owner: [Name]</p>
+                </li>
+                <li style="margin-top: 8pt;">
+                    <strong>[Action 3]</strong>
+                    <p style="font-size: 12pt; margin: 4pt 0 0 0;">Owner: [Name]</p>
+                </li>
+            </ol>
+        </div>
+
+        <div class="column">
+            <h3>Near-term (6-18 months)</h3>
+            <ol>
+                <li>
+                    <strong>[Action 1]</strong>
+                    <p style="font-size: 12pt; margin: 4pt 0 0 0;">Owner: [Name]</p>
+                </li>
+                <li style="margin-top: 8pt;">
+                    <strong>[Action 2]</strong>
+                    <p style="font-size: 12pt; margin: 4pt 0 0 0;">Owner: [Name]</p>
+                </li>
+                <li style="margin-top: 8pt;">
+                    <strong>[Action 3]</strong>
+                    <p style="font-size: 12pt; margin: 4pt 0 0 0;">Owner: [Name]</p>
+                </li>
+            </ol>
+        </div>
+    </div>
+
+    <h3 style="margin-top: 20pt;">Success Metrics</h3>
+    <ul>
+        <li><strong>Metric 1:</strong> [Target value] by [Date]</li>
+        <li><strong>Metric 2:</strong> [Target value] by [Date]</li>
+        <li><strong>Metric 3:</strong> [Target value] by [Date]</li>
+    </ul>
+
+    <div class="highlight-box" style="margin-top: 16pt;">
+        <p style="color: #FFFFFF; margin: 0;">
+            <strong>Critical success factor:</strong> [What must go right for recommendations to succeed]
+        </p>
+    </div>
+
+    <div class="footer">
+        <p style="margin: 0;">[Page number]</p>
+    </div>
+</div>
+
+<!-- SLIDE 9: APPENDIX - SOURCES -->
+<div class="slide">
+    <div class="header">
+        <h2>Appendix: Sources & Methodology</h2>
+        <p style="font-size: 12pt; color: var(--text-medium); margin: 0;">
+            Research transparency & validation
+        </p>
+    </div>
+
+    <h3>Key Sources</h3>
+
+    <p><strong>Market Data (Level 4):</strong></p>
+    <ul style="font-size: 12pt;">
+        <li>[Source 1] - [What data was used]</li>
+        <li>[Source 2] - [What data was used]</li>
+        <li>[Source 3] - [What data was used]</li>
+    </ul>
+
+    <p style="margin-top: 12pt;"><strong>Customer Research (Level 3):</strong></p>
+    <ul style="font-size: 12pt;">
+        <li>[Source 1] - [What data was used]</li>
+        <li>[Source 2] - [What data was used]</li>
+    </ul>
+
+    <p style="margin-top: 12pt;"><strong>Competitive Intelligence (Level 2):</strong></p>
+    <ul style="font-size: 12pt;">
+        <li>[Source 1] - [What data was used]</li>
+        <li>[Source 2] - [What data was used]</li>
+    </ul>
+
+    <h3 style="margin-top: 16pt;">Research Quality</h3>
+    <ul style="font-size: 12pt;">
+        <li><strong>Total sources:</strong> [X] ([Y] Tier 1, [Z] Tier 2)</li>
+        <li><strong>Triangulation:</strong> [X]% of critical findings validated with 2+ sources</li>
+        <li><strong>Average CRAAP score:</strong> [X.X]/25 (Excellent/Good/Acceptable)</li>
+        <li><strong>Currency:</strong> All sources within [X] years</li>
+        <li><strong>Geographic coverage:</strong> [Region]</li>
+    </ul>
+
+    <p style="margin-top: 16pt; font-size: 12pt;">
+        <strong>Full bibliography available in supporting documentation.</strong>
+    </p>
+
+    <div class="footer">
+        <p style="margin: 0;">Complete source list: source-bibliography.md | [Page number]</p>
+    </div>
+</div>
+
+</body>
+</html>

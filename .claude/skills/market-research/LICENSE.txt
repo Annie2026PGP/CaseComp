@@ -1,0 +1,69 @@
+MIT License
+
+Copyright (c) 2025 Market Research Skill Contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+THIRD-PARTY DEPENDENCIES:
+
+This skill integrates with document-skills/pptx from Anthropic:
+https://github.com/anthropics/skills/tree/main/document-skills/pptx
+
+document-skills/pptx has its own license. Please refer to that repository
+for licensing terms of the PPTX generation components.
+
+---
+
+METHODOLOGY REFERENCES:
+
+This skill implements methodologies from:
+- McKinsey & Company (MECE Principle, Pyramid Principle, 7-step process)
+- Boston Consulting Group (BCG frameworks)
+- Bain & Company (Results-oriented approaches)
+
+These methodologies are documented based on publicly available information,
+books, and research. No proprietary client work or confidential information
+is included.
+
+Key references:
+- "The McKinsey Way" by Ethan Rasiel
+- "The Pyramid Principle" by Barbara Minto
+- "Research Methods for Business Students" by Saunders, Lewis & Thornhill
+- ESOMAR Guidelines on Secondary Data
+- MRS Code of Conduct 2023
+
+---
+
+DISCLAIMER:
+
+This skill is provided for educational and professional use. While it
+implements methodologies used by top consulting firms, it does not represent
+official guidance from McKinsey, BCG, Bain, or any other consulting firm.
+
+Research quality depends on proper application of methodologies and access
+to appropriate data sources. Users are responsible for:
+- Validating source credibility
+- Ensuring data accuracy
+- Meeting professional and ethical standards
+- Complying with applicable laws and regulations
+
+The skill creators make no warranties about research outcomes and are not
+liable for decisions made based on research conducted using this skill.
