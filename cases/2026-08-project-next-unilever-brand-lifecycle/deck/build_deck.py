@@ -1,4 +1,5 @@
-"""Builds the Project NEXT pitch deck: cover + 5 content slides + appendix.
+"""Builds the Techtonic S8 / Project NEXT submission deck: cover + 3 required
+content slides (synopsis & analysis / portfolio / product in depth) + appendix.
 Run: python3 cases/2026-08-project-next-unilever-brand-lifecycle/deck/build_deck.py
 """
 from pptx import Presentation
@@ -10,7 +11,7 @@ from pptx.oxml.ns import qn
 
 HERE = "cases/2026-08-project-next-unilever-brand-lifecycle/deck"
 ASSETS = f"{HERE}/assets"
-OUT = f"{HERE}/Project_NEXT_PULSE.pptx"
+OUT = f"{HERE}/Techtonic_S8_Project_NEXT_PULSE.pptx"
 
 BG = RGBColor(0x0A, 0x14, 0x40)
 CARD = RGBColor(0x14, 0x28, 0x63)
@@ -203,177 +204,182 @@ def styled_table(slide, l, t, w, h, headers, rows, col_widths, header_bg=CARD_LI
 s = add_slide()
 bg(s)
 rect(s, 0, 0, 0.18, 7.5, fill=CORAL)
-textbox(s, 1.0, 1.85, 10.5, 0.4, "PROJECT NEXT  —  A PRODUCT PROPOSAL", size=15, color=CORAL, bold=True)
-textbox(s, 1.0, 2.25, 11, 1.1, "PULSE", size=60, color=WHITE, bold=True)
-textbox(s, 1.02, 3.42, 11, 0.5, "Unilever's Always-On Brand Nervous System", size=20, color=CYAN, bold=True)
-textbox(s, 1.02, 3.95, 10.6, 0.7,
-        "Turning a 3-second Rexona armband into the proof: brand teams don't need more AI "
-        "features — they need the system that fires in minutes, not weeks.",
-        size=13.5, color=TEXT_SECONDARY, line_spacing=1.25)
-textbox(s, 1.0, 4.75, 11, 0.4,
-        "How we'd architect the entire brand lifecycle if Unilever were founded today, AI-first",
-        size=12, color=TEXT_MUTED, italic=True)
+textbox(s, 1.0, 1.6, 10.5, 0.4, "TECHTONIC SEASON 8  ·  PROJECT NEXT", size=15, color=CORAL, bold=True)
+textbox(s, 1.0, 2.0, 11, 1.1, "PULSE", size=58, color=WHITE, bold=True)
+textbox(s, 1.02, 3.12, 11, 0.5, "Unilever's Always-On Brand Nervous System", size=19, color=CYAN, bold=True)
+textbox(s, 1.02, 3.62, 10.7, 0.7,
+        "A portfolio of AI products on one shared backbone — proven end-to-end on the Rexona "
+        "armband moment, with a working prototype of the flagship product, Moment Studio.",
+        size=13, color=TEXT_SECONDARY, line_spacing=1.25)
+textbox(s, 1.0, 4.35, 11, 0.35,
+        "#AIAtUnilever   #TechDoneRight",
+        size=11.5, color=TEXT_MUTED, italic=True)
 
-rect(s, 1.0, 6.35, 3.2, 0.02, fill=GRID)
-textbox(s, 1.0, 6.5, 6, 0.3, "Ranjana Mainani — Product Manager, Project NEXT", size=12, color=WHITE, bold=True)
-textbox(s, 1.0, 6.8, 6, 0.3, "cases/2026-08-project-next-unilever-brand-lifecycle", size=10, color=TEXT_MUTED)
+rect(s, 1.0, 6.05, 3.2, 0.02, fill=GRID)
+textbox(s, 1.0, 6.2, 8, 0.3, "Ranjana Mainani — Product Manager, Project NEXT", size=12, color=WHITE, bold=True)
+textbox(s, 1.0, 6.5, 8, 0.3, "cases/2026-08-project-next-unilever-brand-lifecycle", size=10, color=TEXT_MUTED)
+textbox(s, 1.0, 6.8, 10, 0.3, "Prototype: claude.ai/code/artifact/07a83b55-6cab-4866-937b-f4f79e9b7701", size=10, color=CYAN)
 
 # =====================================================================
-# SLIDE 1 — THE PROBLEM
+# SLIDE 1 / 3 — SYNOPSIS & ANALYSIS
 # =====================================================================
 s = add_slide()
 bg(s)
 slide_header(
-    s, "1 / 5  —  THE PROBLEM",
-    "The viral window was minutes. Our pipeline is measured in weeks.",
-    "The fourth official's board carried a Rexona logo for 3 seconds. Fans memed it before the final whistle. Our process couldn't have shipped a response before the tournament ended.",
+    s, "1 / 3  —  SYNOPSIS & ANALYSIS",
+    "The gap isn't tooling. It's synthesis — and it costs us the whole moment.",
+    "Unilever already has social listening, web scraping and isolated AI pilots. They run independently, so a human manually stitches signal to publish — every time, across every stage of the lifecycle.",
 )
 
-add_picture_fit(s, f"{ASSETS}/timeline_comparison.png", 0.55, 1.75, 12.25, 3.15)
+add_picture_fit(s, f"{ASSETS}/timeline_comparison.png", 0.5, 1.62, 6.35, 2.35)
+textbox(s, 0.55, 4.05, 6.25, 0.28, "WHAT'S ACTUALLY BROKEN", size=10.3, color=CORAL, bold=True)
+multirun_textbox(s, 0.55, 4.35, 6.25, 2.5, [
+    [{"text": "43-day agency pipeline", "size": 9.8, "color": WHITE, "bold": True},
+     {"text": " vs. a viral window measured in minutes — by the time content ships, the moment is dead.", "size": 9.6, "color": TEXT_SECONDARY}],
+    [{"text": "Point capabilities, zero wiring", "size": 9.8, "color": WHITE, "bold": True},
+     {"text": " — listening, scraping and AI pilots exist but don't talk to each other; a human is the integration layer.", "size": 9.6, "color": TEXT_SECONDARY}],
+    [{"text": "Every asset is bespoke", "size": 9.8, "color": WHITE, "bold": True},
+     {"text": " — nothing from one campaign compounds into the next; each cycle restarts from zero.", "size": 9.6, "color": TEXT_SECONDARY}],
+], line_spacing=1.2, space_after=10)
 
-rect(s, 0.55, 5.15, 12.25, 1.55, fill=CARD, radius=0.04)
-textbox(s, 0.8, 5.3, 11.7, 0.3, "THIS ISN'T A TOOLING GAP — IT'S A WIRING GAP", size=11, color=CORAL, bold=True)
-multirun_textbox(s, 0.8, 5.62, 11.7, 1.0, [
-    [{"text": "Social listening and web scraping already exist at Unilever ", "size": 10.3, "color": TEXT_SECONDARY},
-     {"text": "— the brief says so directly.", "size": 10.3, "color": TEXT_SECONDARY, "italic": True},
-     {"text": "  They just run independently, so a human has to manually notice, judge, brief, produce, clear, and "
-              "publish — every single time. The fix isn't another dashboard. It's removing the human synthesis step from the critical path.",
-      "size": 10.3, "color": TEXT_SECONDARY}],
-], line_spacing=1.25)
+add_picture_fit(s, f"{ASSETS}/three_clockspeeds.png", 7.15, 1.55, 3.55, 3.55)
+textbox(s, 10.85, 1.7, 1.9, 0.6, "REDEFINING THE LIFECYCLE — WHERE AI CREATES VALUE", size=9.6, color=CYAN, bold=True, line_spacing=1.2)
+multirun_textbox(s, 10.85, 2.55, 1.95, 4.2, [
+    [{"text": "Moments", "size": 9.4, "color": CYAN, "bold": True},
+     {"text": " (min–hrs): sense & react before virality decays.", "size": 8.6, "color": TEXT_SECONDARY}],
+    [{"text": "Campaigns", "size": 9.4, "color": CORAL, "bold": True},
+     {"text": " (weeks): brief + production cut from weeks to days.", "size": 8.6, "color": TEXT_SECONDARY}],
+    [{"text": "Strategy", "size": 9.4, "color": TEAL, "bold": True},
+     {"text": " (qtrs–yrs): continuous signal replaces periodic research.", "size": 8.6, "color": TEXT_SECONDARY}],
+], line_spacing=1.2, space_after=10)
+
+rect(s, 0.55, 6.55, 12.25, 0.6, fill=CARD_LIGHT, radius=0.12)
+textbox(s, 0.85, 6.66, 11.7, 0.4,
+        "This isn't a tooling gap — it's a wiring gap. The fix is removing manual synthesis from the critical path, at every clock speed.",
+        size=10.3, color=CYAN, italic=True, bold=True, anchor=MSO_ANCHOR.MIDDLE)
 
 footer(s, "Page 2")
 
 # =====================================================================
-# SLIDE 2 — THE SYSTEM
+# SLIDE 2 / 3 — THE PORTFOLIO
 # =====================================================================
 s = add_slide()
 bg(s)
 slide_header(
-    s, "2 / 5  —  THE SYSTEM",
-    "PULSE: one closed loop, not five more point solutions",
-    "Perceive → Understand → Localize → Ship → Evaluate — built on top of what Unilever already has, wired for the first time.",
+    s, "2 / 3  —  THE PORTFOLIO",
+    "Six products, one backbone — prioritized by dependency and time-to-value",
+    "Every product below is built on PULSE: one Brand Signal Graph + Brand DNAi orchestration layer, not six separate AI builds.",
 )
 
-add_picture_fit(s, f"{ASSETS}/pulse_loop.png", 3.0, 1.55, 5.9, 5.9)
-
-rect(s, 0.45, 1.75, 2.4, 5.5, fill=CARD, radius=0.06)
-textbox(s, 0.62, 1.9, 2.1, 0.3, "BUILT ON, NOT INSTEAD OF", size=9.3, color=CYAN, bold=True)
-multirun_textbox(s, 0.62, 2.22, 2.1, 5.0, [
-    [{"text": "Brand DNAi", "size": 9.3, "color": WHITE, "bold": True},
-     {"text": " — the safety & voice layer Understand/Localize score and generate against.", "size": 8.7, "color": TEXT_SECONDARY}],
-    [{"text": "Digital-twin production", "size": 9.3, "color": WHITE, "bold": True},
-     {"text": " — 2x faster, 50% cheaper product imagery, feeds Localize.", "size": 8.7, "color": TEXT_SECONDARY}],
-    [{"text": "Desire at Scale", "size": 9.3, "color": WHITE, "bold": True},
-     {"text": " — the multi-market activation engine PULSE's Ship stage drives.", "size": 8.7, "color": TEXT_SECONDARY}],
-], line_spacing=1.25, space_after=12)
-
-rect(s, 9.9, 1.75, 2.9, 5.5, fill=CARD, radius=0.06)
-textbox(s, 10.07, 1.9, 2.6, 0.3, "WHAT'S ACTUALLY NEW", size=9.3, color=CORAL, bold=True)
-multirun_textbox(s, 10.07, 2.22, 2.6, 5.0, [
-    [{"text": "One Brand Signal Graph", "size": 9.3, "color": WHITE, "bold": True},
-     {"text": " per brand — listening + scraping + broadcast unified, not siloed.", "size": 8.7, "color": TEXT_SECONDARY}],
-    [{"text": "Tiered autonomy", "size": 9.3, "color": WHITE, "bold": True},
-     {"text": " — auto-publish / fast-track / escalate, decided before the moment, not during it.", "size": 8.7, "color": TEXT_SECONDARY}],
-    [{"text": "A closed Evaluate loop", "size": 9.3, "color": WHITE, "bold": True},
-     {"text": " — every result re-trains the next playbook, so the system compounds.", "size": 8.7, "color": TEXT_SECONDARY}],
-], line_spacing=1.25, space_after=12)
-
-footer(s, "Page 3", "Brand DNAi, digital-twin production and Desire at Scale are real, existing Unilever capabilities — see appendix for sources.")
-
-# =====================================================================
-# SLIDE 3 — PULSE IN ACTION (REXONA WALKTHROUGH)
-# =====================================================================
-s = add_slide()
-bg(s)
-slide_header(
-    s, "3 / 5  —  PULSE IN ACTION",
-    "The Rexona armband, run through PULSE: under 4 hours, not 6 weeks",
-    None,
-)
-
-headers = ["Stage", "What happens", "Elapsed"]
+headers = ["Product", "Lifecycle stage", "Area of solution", "Core tech", "Phase"]
 rows = [
-    ["PERCEIVE", "Broadcast + social monitoring flags the logo appearance and rising meme velocity across markets.", "T+0 → T+10 min"],
-    ["UNDERSTAND", "Signal scored against Rexona's codified strategy (composure under pressure); auto-classified Tier 1 — on-strategy, low-risk, high-velocity — triggers the pre-approved “cultural moment” playbook.", "T+10 → T+20 min"],
-    ["LOCALIZE", "Generative layer (Brand DNAi + digital twin) drafts caption + product-shot variants in brand voice, localized for priority markets.", "T+20 min → T+1h20"],
-    ["SHIP", "Brand manager — now a “signal editor” — reviews 3 AI-drafted options on one screen, edits, approves; publishes across markets simultaneously.", "T+1h20 → T+3h50"],
-    ["EVALUATE", "Real-time engagement feeds the media-amplification decision and updates the playbook for next time.", "Continuous"],
+    ["Signal Radar", "Perceive", "Unified real-time sensing", "Multi-source ingestion, brand/logo recognition", "1"],
+    ["Playbook Studio", "Understand", "Governance & knowledge codification", "Rules+ML brand-fit/risk scoring", "1"],
+    ["Moment Studio", "Localize + Ship (reactive)", "Real-time creative production & approval", "Multi-agent generation + human console", "1"],
+    ["Campaign Composer", "Localize + Ship (planned)", "Planned content production", "Same generation agents, brief-driven", "2"],
+    ["Brand Pulse Dashboard", "Evaluate", "Measurement & feedback", "Real-time analytics, closed-loop scoring", "2"],
+    ["Strategy Compass", "Strategy", "Long-cycle positioning", "Longitudinal signal analysis", "3"],
 ]
 row_colors = [CARD if i % 2 == 0 else CARD_LIGHT for i in range(len(rows))]
-stage_colors = {"PERCEIVE": CYAN, "UNDERSTAND": CYAN, "LOCALIZE": CORAL, "SHIP": CORAL, "EVALUATE": TEAL}
+phase_colors = {"1": CORAL, "2": TEAL, "3": AMBER}
 
-tbl = styled_table(s, 0.55, 1.65, 12.25, 4.35, headers, rows,
-                    col_widths=[1.4, 4.6, 1.3], font_size=10.3, header_size=10, row_colors=row_colors)
+tbl = styled_table(s, 0.55, 1.72, 7.55, 3.15, headers, rows,
+                    col_widths=[1.7, 1.5, 1.9, 1.9, 0.6], font_size=8.5, header_size=8.3, row_colors=row_colors)
 for ri, row in enumerate(rows):
-    cell = tbl.cell(ri + 1, 0)
-    cell.text_frame.paragraphs[0].runs[0].font.color.rgb = stage_colors[row[0]]
+    cell = tbl.cell(ri + 1, 4)
+    cell.text_frame.paragraphs[0].runs[0].font.color.rgb = phase_colors[row[-1]]
+    cell.text_frame.paragraphs[0].runs[0].font.bold = True
 
-rect(s, 0.55, 6.15, 12.25, 0.65, fill=CARD_LIGHT, radius=0.1)
-textbox(s, 0.85, 6.28, 11.7, 0.4,
-        "The pre-built playbook is the point: the creative judgment happens calmly, in advance — the same composure the tagline promises, built into the process itself.",
-        size=10.5, color=CYAN, italic=True, bold=True, anchor=MSO_ANCHOR.MIDDLE)
+add_picture_fit(s, f"{ASSETS}/portfolio_roadmap.png", 8.3, 1.72, 4.5, 2.15)
 
-footer(s, "Page 4", "Illustrative timings for a system design proposal, not measured production data — see appendix.")
+rect(s, 0.55, 5.1, 12.25, 1.95, fill=CARD, radius=0.04)
+textbox(s, 0.8, 5.25, 11.7, 0.3, "PRIORITIZATION RATIONALE", size=10.5, color=CORAL, bold=True)
+multirun_textbox(s, 0.8, 5.58, 11.7, 1.4, [
+    [{"text": "Phase 1 — foundation + first win: ", "size": 9.7, "color": CORAL, "bold": True},
+     {"text": "Signal Radar + Playbook Studio are prerequisites nothing else works without; Moment Studio ships alongside them as the fastest, highest-visibility proof of value.", "size": 9.5, "color": TEXT_SECONDARY}],
+    [{"text": "Phase 2 — scale production: ", "size": 9.7, "color": TEAL, "bold": True},
+     {"text": "Campaign Composer reuses Moment Studio's generation agents at near-zero incremental cost; Brand Pulse Dashboard closes the loop to justify further investment.", "size": 9.5, "color": TEXT_SECONDARY}],
+    [{"text": "Phase 3 — compounding advantage: ", "size": 9.7, "color": AMBER, "bold": True},
+     {"text": "Strategy Compass ships last, deliberately — it needs the longest accumulated signal history to be trustworthy.", "size": 9.5, "color": TEXT_SECONDARY}],
+], line_spacing=1.2, space_after=6)
 
-# =====================================================================
-# SLIDE 4 — THREE CLOCK SPEEDS
-# =====================================================================
-s = add_slide()
-bg(s)
-slide_header(
-    s, "4 / 5  —  THE WHOLE LIFECYCLE",
-    "Not just reactive moments — the same nervous system runs three clock speeds",
-    "One Brand Signal Graph, one Brand DNAi safety layer, three cadences of the same PULSE loop.",
-)
-
-add_picture_fit(s, f"{ASSETS}/three_clockspeeds.png", 4.35, 1.55, 4.7, 4.7)
-
-for title, cadence, desc, color, x in [
-    ("MOMENTS", "minutes – hours", "Unscripted cultural moments. PULSE runs end-to-end inside tiered guardrails.", CYAN, 0.55),
-    ("CAMPAIGNS", "weeks", "Planned activations — same graph informs the brief; same engine cuts production time.", CORAL, 4.75),
-    ("STRATEGY", "quarters – years", "Brand positioning — continuous signal replaces periodic research waves.", TEAL, 8.95),
-]:
-    rect(s, x, 6.35, 3.85, 0.85, fill=CARD, radius=0.08, line_color=color, line_w=1.3)
-    textbox(s, x + 0.15, 6.42, 3.55, 0.25, f"{title}  ·  {cadence}", size=9.7, color=color, bold=True)
-    textbox(s, x + 0.15, 6.68, 3.55, 0.5, desc, size=8.2, color=TEXT_SECONDARY, line_spacing=1.15)
-
-footer(s, "Page 5")
+footer(s, "Page 3")
 
 # =====================================================================
-# SLIDE 5 — THE MOAT & THE NEW ROLE
+# SLIDE 3 / 3 — PRODUCT IN DEPTH: MOMENT STUDIO
 # =====================================================================
 s = add_slide()
 bg(s)
 slide_header(
-    s, "5 / 5  —  WHY THIS MAKES US INVINCIBLE",
-    "Competitors can buy the same models. They can't buy our signal graph.",
+    s, "3 / 3  —  PRODUCT IN DEPTH",
+    "Moment Studio: user journey, agents, governance, cost & roadmap",
     None,
 )
 
-cards = [
-    ("COMPOUNDS OVER TIME", "The Brand Signal Graph and its playbooks accumulate with every loop — a rival starting today begins at zero, no matter which foundation model they license.", CYAN),
-    ("GOVERNED BY DESIGN", "Tiered autonomy (auto / fast-track / escalate) means speed and brand safety were never a trade-off — Brand DNAi enforces voice and compliance at every tier.", TEAL),
-    ("INSTITUTIONAL JUDGMENT, CODIFIED", "Playbooks capture what brand teams already know works — built calmly in advance, so the in-the-moment step is a lookup, not a live debate.", CORAL),
-    ("A NEW ROLE, NOT A SMALLER ONE", "The Brand Manager becomes a “signal editor” — setting playbook strategy and approving output — spending time on judgment, not chasing agency deliverables.", AMBER),
+add_picture_fit(s, f"{ASSETS}/moment_studio_pipeline.png", 0.45, 1.42, 12.4, 2.28)
+
+# Bottom row: 3 columns
+col_w = 3.97
+gap = 0.17
+x0 = 0.55
+y0 = 3.85
+h = 2.95
+
+# Column 1 — Capabilities + governance tiers
+rect(s, x0, y0, col_w, h, fill=CARD, radius=0.05)
+textbox(s, x0 + 0.16, y0 + 0.12, col_w - 0.32, 0.22, "CAPABILITIES", size=9, color=CYAN, bold=True)
+caps = [
+    "Real-time signal-to-playbook matching",
+    "Multi-variant generative drafting (copy + visual)",
+    "Side-by-side human review, inline editing",
+    "One-click multi-market publish",
+    "Full audit trail + kill-switch recall",
 ]
-card_w = 2.93
-gap = 0.2
-x = 0.55
-y = 1.85
-for tag, desc, color in cards:
-    rect(s, x, y, card_w, 3.5, fill=CARD, radius=0.06, line_color=color, line_w=1.5)
-    rect(s, x, y, card_w, 0.62, fill=color, radius=0.0)
-    textbox(s, x + 0.12, y + 0.08, card_w - 0.24, 0.5, tag, size=10.3, color=BG, bold=True,
-            align=PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE, line_spacing=1.05)
-    textbox(s, x + 0.18, y + 0.85, card_w - 0.36, 2.5, desc, size=9.7, color=TEXT_SECONDARY, line_spacing=1.3)
-    x += card_w + gap
+yy = y0 + 0.36
+for c in caps:
+    textbox(s, x0 + 0.16, yy, col_w - 0.32, 0.2, "•  " + c, size=7.8, color=TEXT_SECONDARY, line_spacing=1.05)
+    yy += 0.195
 
-rect(s, 0.55, 5.65, 12.25, 1.05, fill=CARD_LIGHT, radius=0.06)
-textbox(s, 0.85, 5.82, 11.7, 0.7,
-        "“It won't EVER let you down” isn't just the Rexona tagline anymore — it's the design spec for the process behind it.",
-        size=13, color=WHITE, bold=True, italic=True, anchor=MSO_ANCHOR.MIDDLE)
+textbox(s, x0 + 0.16, yy + 0.05, col_w - 0.32, 0.22, "HUMAN OVERSIGHT BY TIER", size=9, color=CYAN, bold=True)
+tiers = [
+    ("Tier 1", "Pre-cleared archetype", "Single-tap approve, ≤15 min SLA", TEAL),
+    ("Tier 2", "Novel but on-strategy", "Full review + edit required", AMBER),
+    ("Tier 3", "Off-playbook / sensitive", "Escalate to brand & legal, no AI draft", GRAY),
+]
+yy += 0.3
+for t, trig, over, c in tiers:
+    textbox(s, x0 + 0.16, yy, 0.55, 0.36, t, size=8, color=c, bold=True)
+    textbox(s, x0 + 0.72, yy, col_w - 0.9, 0.36, trig + " — " + over, size=7.3, color=TEXT_SECONDARY, line_spacing=1.05)
+    yy += 0.32
 
-footer(s, "Page 6")
+# Column 2 — Cost & roadmap
+x2 = x0 + col_w + gap
+rect(s, x2, y0, col_w, h, fill=CARD, radius=0.05)
+textbox(s, x2 + 0.18, y0 + 0.14, col_w - 0.36, 0.25, "COST & IMPLEMENTATION ROADMAP", size=9.3, color=CYAN, bold=True)
+c_headers = ["Phase", "Duration", "Squad", "Illustrative cost"]
+c_rows = [
+    ["MVP", "Mo. 0-3", "~6 (PM, 2-3 AI/ML eng, 1-2 full-stack, design)", "$250-400K"],
+    ["Pilot expand", "Mo. 4-6", "Same squad + brand/legal governance lead", "$150-250K"],
+    ["Phase 2 rollout", "Mo. 7-12", "+2 eng for Campaign Composer, Dashboard", "$400-600K"],
+]
+tbl2 = styled_table(s, x2 + 0.15, y0 + 0.44, col_w - 0.3, 1.7, c_headers, c_rows,
+                     col_widths=[1.1, 0.9, 2.6, 1.15], font_size=7.3, header_size=7.2)
+textbox(s, x2 + 0.18, y0 + 2.22, col_w - 0.36, 0.6,
+        "Illustrative planning estimates only — not sourced Unilever cost data. Assumes reuse of existing Brand DNAi / digital-twin infrastructure.",
+        size=7.4, color=TEXT_MUTED, italic=True, line_spacing=1.15)
+
+# Column 3 — Prototype
+x3 = x2 + col_w + gap
+rect(s, x3, y0, col_w, h, fill=CARD, radius=0.05, line_color=CORAL, line_w=1.3)
+textbox(s, x3 + 0.18, y0 + 0.14, col_w - 0.36, 0.25, "PROTOTYPE — TRY IT LIVE", size=9.3, color=CORAL, bold=True)
+add_picture_fit(s, f"{ASSETS}/prototype_screenshot.png", x3 + 0.16, y0 + 0.42, col_w - 0.32, 1.72)
+textbox(s, x3 + 0.18, y0 + 2.2, col_w - 0.36, 0.6,
+        "Functional console: signal detected → AI-tiered → variants drafted → human approve → publish → performance feedback loop.",
+        size=7.6, color=TEXT_SECONDARY, line_spacing=1.15)
+textbox(s, x3 + 0.18, y0 + 2.62, col_w - 0.36, 0.25,
+        "claude.ai/code/artifact/07a83b55…", size=7.8, color=CYAN, bold=True)
+
+footer(s, "Page 4", "Full architecture, agent detail and cost assumptions in the appendix and analysis.md.")
 
 # =====================================================================
 # APPENDIX
@@ -399,16 +405,17 @@ for src in sources:
 
 textbox(s, 0.55, 4.35, 12.2, 0.3, "ASSUMPTIONS & GOVERNANCE NOTES", size=11, color=CYAN, bold=True)
 notes = [
-    "This is a conceptual system-design case with no dataset or slide limit provided; scope and format (cover + 5 content slides + appendix) were self-set.",
-    "Timings in the Rexona walkthrough (“under 4 hours”) are illustrative targets for a system proposal, not measured data — the honest reference point is the cited literature's 30-50% production-time reduction from generative AI adoption.",
-    "Real-time computer-vision detection of an unscripted brand appearance (e.g. spotting a logo on a match official's armband) is a genuinely hard sensing problem beyond text/social listening and is flagged as a build risk, not assumed solved.",
-    "Tiered auto-publish carries brand-safety and legal risk if scoring is miscalibrated — recommend a narrow Tier-1 (auto-publish) scope at launch, expanding only as the Signal Graph accumulates evidence.",
-    "PULSE is proposed as an orchestration layer over Unilever's existing Brand DNAi, digital-twin production and Desire at Scale capabilities — not a replacement for them.",
+    "Official brief (Techtonic Season 8, source PDF) requires 3 submission slides + a mandatory prototype; cover and this appendix sit outside that count.",
+    "Timings in the Moment Studio walkthrough are illustrative targets for a system proposal, not measured data — the honest reference point is the cited literature's 30-50% production-time reduction from generative AI adoption.",
+    "Cost estimates on slide 3 are illustrative planning placeholders, not sourced Unilever figures — flagged explicitly rather than presented as researched.",
+    "Real-time computer-vision detection of an unscripted brand appearance (e.g. a logo on a match official's armband) is a genuinely hard sensing problem beyond text/social listening, flagged as build risk, not assumed solved.",
+    "Human-tap approval, even fast-tracked (Tier 1, ≤15 min SLA), is a deliberate choice over fully autonomous publish — speed traded for governance rigor.",
+    "The prototype (linked on cover and slide 3) is a UI/flow mock-up demonstrating the intended experience and decision logic — not wired to real Unilever data, Brand DNAi, or distribution systems.",
 ]
 y = 4.7
 for n in notes:
-    textbox(s, 0.55, y, 12.3, 0.55, "•  " + n, size=8.8, color=TEXT_SECONDARY, line_spacing=1.2)
-    y += 0.5
+    textbox(s, 0.55, y, 12.3, 0.55, "•  " + n, size=8.5, color=TEXT_SECONDARY, line_spacing=1.15)
+    y += 0.44
 
 footer(s, "Appendix")
 

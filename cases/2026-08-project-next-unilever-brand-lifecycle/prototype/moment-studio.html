@@ -1,0 +1,553 @@
+<title>Moment Studio — Prototype</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root {
+    --surface-0: #f6f8fc;
+    --surface-1: #ffffff;
+    --surface-2: #eef2fa;
+    --line: #e2e7f0;
+    --ink: #0b1220;
+    --muted: #5b6478;
+    --accent: #2568d9;
+    --accent-ink: #ffffff;
+    --tier-good: #0f9d74;
+    --tier-good-bg: #e3f7ef;
+    --tier-warn: #b36b00;
+    --tier-warn-bg: #fbeed9;
+    --tier-crit: #d93a3a;
+    --tier-crit-bg: #fce4e4;
+    --shadow: 0 1px 2px rgba(11, 18, 32, 0.06), 0 8px 24px rgba(11, 18, 32, 0.06);
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) {
+      --surface-0: #0b1220;
+      --surface-1: #121b2e;
+      --surface-2: #1a2740;
+      --line: #26324a;
+      --ink: #f4f6fb;
+      --muted: #8994ac;
+      --accent: #4a95ff;
+      --accent-ink: #071022;
+      --tier-good: #2bd9a0;
+      --tier-good-bg: rgba(43, 217, 160, 0.14);
+      --tier-warn: #ffb648;
+      --tier-warn-bg: rgba(255, 182, 72, 0.14);
+      --tier-crit: #ff5d5d;
+      --tier-crit-bg: rgba(255, 93, 93, 0.14);
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.35);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --surface-0: #0b1220;
+    --surface-1: #121b2e;
+    --surface-2: #1a2740;
+    --line: #26324a;
+    --ink: #f4f6fb;
+    --muted: #8994ac;
+    --accent: #4a95ff;
+    --accent-ink: #071022;
+    --tier-good: #2bd9a0;
+    --tier-good-bg: rgba(43, 217, 160, 0.14);
+    --tier-warn: #ffb648;
+    --tier-warn-bg: rgba(255, 182, 72, 0.14);
+    --tier-crit: #ff5d5d;
+    --tier-crit-bg: rgba(255, 93, 93, 0.14);
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.35);
+    color-scheme: dark;
+  }
+  :root[data-theme="light"] {
+    --surface-0: #f6f8fc;
+    --surface-1: #ffffff;
+    --surface-2: #eef2fa;
+    --line: #e2e7f0;
+    --ink: #0b1220;
+    --muted: #5b6478;
+    --accent: #2568d9;
+    --accent-ink: #ffffff;
+    --tier-good: #0f9d74;
+    --tier-good-bg: #e3f7ef;
+    --tier-warn: #b36b00;
+    --tier-warn-bg: #fbeed9;
+    --tier-crit: #d93a3a;
+    --tier-crit-bg: #fce4e4;
+    --shadow: 0 1px 2px rgba(11, 18, 32, 0.06), 0 8px 24px rgba(11, 18, 32, 0.06);
+    color-scheme: light;
+  }
+
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--surface-0);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.45;
+    -webkit-font-smoothing: antialiased;
+  }
+  .mono { font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", monospace; font-variant-numeric: tabular-nums; }
+
+  a { color: var(--accent); }
+
+  .app { max-width: 1240px; margin: 0 auto; padding: 20px 20px 64px; }
+
+  /* ---- Top bar ---- */
+  .topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; padding: 14px 18px;
+    background: var(--surface-1); border: 1px solid var(--line); border-radius: 14px;
+    box-shadow: var(--shadow);
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .brand .mark {
+    width: 30px; height: 30px; border-radius: 8px;
+    background: linear-gradient(155deg, var(--accent), #6fb0ff 130%);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--accent-ink); font-weight: 800; font-size: 13px;
+  }
+  .brand .name { font-weight: 800; letter-spacing: 0.01em; font-size: 16px; }
+  .brand .sub { color: var(--muted); font-size: 12px; }
+
+  .clock-wrap { display: flex; align-items: center; gap: 10px; }
+  .clock-label { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; }
+  .clock {
+    font-weight: 700; font-size: 20px; padding: 4px 10px;
+    background: var(--surface-2); border-radius: 8px; border: 1px solid var(--line);
+  }
+  .clock.paused { color: var(--tier-warn); }
+
+  .theme-toggle {
+    border: 1px solid var(--line); background: var(--surface-2); color: var(--ink);
+    border-radius: 8px; padding: 6px 10px; font-size: 12px; cursor: pointer;
+  }
+  .theme-toggle:focus-visible, button:focus-visible, [contenteditable]:focus-visible, input:focus-visible {
+    outline: 2px solid var(--accent); outline-offset: 2px;
+  }
+
+  /* ---- Layout ---- */
+  .grid {
+    display: grid;
+    grid-template-columns: 300px 1fr 320px;
+    gap: 16px;
+    align-items: start;
+  }
+  @media (max-width: 980px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+
+  .panel {
+    background: var(--surface-1); border: 1px solid var(--line); border-radius: 14px;
+    box-shadow: var(--shadow); padding: 16px;
+  }
+  .panel + .panel { margin-top: 16px; }
+  .panel h2 {
+    margin: 0 0 12px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--muted); font-weight: 700;
+  }
+
+  /* ---- Signal card ---- */
+  .signal-desc { font-size: 13.5px; color: var(--ink); margin: 0 0 12px; }
+  .signal-meta { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+  .meta-row { display: flex; justify-content: space-between; font-size: 12.5px; }
+  .meta-row .k { color: var(--muted); }
+  .meta-row .v { font-weight: 600; }
+
+  .tier-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 6px 10px; border-radius: 999px; font-weight: 700; font-size: 12px;
+    background: var(--tier-good-bg); color: var(--tier-good);
+    border: 1px solid color-mix(in srgb, var(--tier-good) 35%, transparent);
+  }
+  .tier-badge .dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+
+  .score-bars { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
+  .score-row .label { display: flex; justify-content: space-between; font-size: 11.5px; color: var(--muted); margin-bottom: 4px; }
+  .bar-track { height: 6px; border-radius: 999px; background: var(--surface-2); overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 999px; background: var(--accent); width: 0%; transition: width 900ms ease; }
+  .bar-fill.good { background: var(--tier-good); }
+
+  .playbook-note {
+    margin-top: 14px; padding: 10px 12px; border-radius: 10px;
+    background: var(--surface-2); font-size: 12px; color: var(--muted); border: 1px dashed var(--line);
+  }
+  .playbook-note b { color: var(--ink); }
+
+  /* ---- Variants ---- */
+  .variant-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 720px) { .variant-grid { grid-template-columns: 1fr; } }
+
+  .variant {
+    border: 2px solid var(--line); border-radius: 12px; overflow: hidden;
+    background: var(--surface-1); cursor: pointer; transition: border-color 160ms ease, transform 160ms ease;
+    display: flex; flex-direction: column;
+  }
+  .variant:hover { transform: translateY(-2px); }
+  .variant.selected { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 20%, transparent); }
+
+  .variant .visual {
+    height: 130px; position: relative; overflow: hidden;
+    display: flex; align-items: flex-end; padding: 10px;
+  }
+  .variant .visual .market-tag {
+    background: rgba(0,0,0,0.45); color: #fff; font-size: 10.5px; font-weight: 700;
+    padding: 3px 8px; border-radius: 999px; letter-spacing: 0.04em;
+  }
+  .variant .visual::after {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.22), transparent 55%);
+  }
+  .visual.v1 { background: linear-gradient(160deg, #1f5fd9, #16345f); }
+  .visual.v2 { background: linear-gradient(160deg, #0f9d74, #0c4a3a); }
+  .visual.v3 { background: linear-gradient(160deg, #b36b00, #5c3300); }
+
+  .variant .body { padding: 12px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .variant .headline { font-weight: 700; font-size: 12.5px; color: var(--muted); display: flex; justify-content: space-between; align-items: center; }
+  .variant .copy {
+    font-size: 13px; min-height: 54px; border-radius: 8px; padding: 8px;
+    background: var(--surface-2); border: 1px solid transparent;
+  }
+  .variant .copy:focus { border-color: var(--accent); outline: none; background: var(--surface-1); }
+  .variant .pick {
+    align-self: flex-start; font-size: 11.5px; font-weight: 700; color: var(--accent);
+    background: none; border: none; padding: 0; cursor: pointer;
+  }
+  .variant.selected .pick::before { content: "✓ "; }
+
+  .gen-status {
+    display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 12.5px; margin-bottom: 12px;
+  }
+  .spinner {
+    width: 13px; height: 13px; border-radius: 50%;
+    border: 2px solid var(--line); border-top-color: var(--accent);
+    animation: spin 800ms linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .spinner { animation: none; } }
+
+  /* ---- Publish panel ---- */
+  .markets { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+  .market-row {
+    display: flex; align-items: center; gap: 10px; font-size: 13px;
+    padding: 7px 8px; border-radius: 8px;
+  }
+  .market-row input { width: 15px; height: 15px; accent-color: var(--accent); }
+
+  .btn {
+    width: 100%; padding: 11px 14px; border-radius: 10px; border: none;
+    font-weight: 700; font-size: 13.5px; cursor: pointer; transition: opacity 150ms ease, transform 100ms ease;
+  }
+  .btn:active { transform: scale(0.99); }
+  .btn-primary { background: var(--accent); color: var(--accent-ink); }
+  .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
+  .btn-ghost { background: var(--surface-2); color: var(--ink); border: 1px solid var(--line); margin-top: 10px; }
+  .btn-danger { background: transparent; color: var(--tier-crit); border: 1px solid color-mix(in srgb, var(--tier-crit) 40%, transparent); margin-top: 10px; }
+
+  .status-banner {
+    margin-top: 12px; padding: 10px 12px; border-radius: 10px; font-size: 12.5px;
+    background: var(--tier-good-bg); color: var(--tier-good); border: 1px solid color-mix(in srgb, var(--tier-good) 35%, transparent);
+    display: none;
+  }
+  .status-banner.show { display: block; }
+
+  .perf-row { display: flex; justify-content: space-between; font-size: 12.5px; margin-top: 8px; }
+  .perf-row .k { color: var(--muted); }
+  .perf-row .v { font-weight: 700; }
+
+  /* ---- Audit log ---- */
+  .log { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 9px; max-height: 220px; overflow-y: auto; }
+  .log li { font-size: 12px; display: flex; gap: 8px; }
+  .log .t { color: var(--muted); flex-shrink: 0; }
+  .log .e { color: var(--ink); }
+  .log li.new { animation: fadein 400ms ease; }
+  @keyframes fadein { from { opacity: 0; transform: translateY(-3px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .log li.new { animation: none; } }
+
+  .footnote { color: var(--muted); font-size: 11.5px; margin-top: 18px; text-align: center; }
+</style>
+
+<div class="app">
+  <div class="topbar">
+    <div class="brand">
+      <div class="mark">MS</div>
+      <div>
+        <div class="name">Moment Studio</div>
+        <div class="sub">Rexona · part of PULSE — reactive moments console (prototype)</div>
+      </div>
+    </div>
+    <div class="clock-wrap">
+      <div>
+        <div class="clock-label">Simulated mission clock</div>
+        <div class="clock mono" id="clock">T+0:00:00</div>
+      </div>
+      <button class="theme-toggle" id="themeToggle" type="button">Toggle theme</button>
+    </div>
+  </div>
+
+  <div class="grid">
+    <!-- LEFT: Signal & Playbook -->
+    <div>
+      <div class="panel">
+        <h2>Incoming signal</h2>
+        <p class="signal-desc">Fourth official's board carries a Rexona logo for ~3 seconds during stoppage time. Meme velocity rising across markets.</p>
+        <div class="signal-meta">
+          <div class="meta-row"><span class="k">Detected</span><span class="v mono">T+0:00:04</span></div>
+          <div class="meta-row"><span class="k">Source</span><span class="v">Signal Radar (broadcast+social)</span></div>
+          <div class="meta-row"><span class="k">Brand</span><span class="v">Rexona</span></div>
+        </div>
+        <div id="tierBadge" class="tier-badge"><span class="dot"></span><span>Scoring…</span></div>
+        <div class="score-bars">
+          <div class="score-row">
+            <div class="label"><span>Brand-fit</span><span id="fitScoreLabel" class="mono">—</span></div>
+            <div class="bar-track"><div id="fitBar" class="bar-fill good"></div></div>
+          </div>
+          <div class="score-row">
+            <div class="label"><span>Risk (lower = safer)</span><span id="riskScoreLabel" class="mono">—</span></div>
+            <div class="bar-track"><div id="riskBar" class="bar-fill"></div></div>
+          </div>
+        </div>
+        <div class="playbook-note">
+          Matched playbook: <b>“Cultural Moment — Composure Archetype v3”</b> · pre-cleared by brand + legal · authored in Playbook Studio
+        </div>
+      </div>
+    </div>
+
+    <!-- CENTER: Variants -->
+    <div class="panel">
+      <h2>Generated variants — Copy Agent × Visual Agent × Localization Agent</h2>
+      <div class="gen-status" id="genStatus"><span class="spinner"></span><span>Drafting on-brand variants…</span></div>
+      <div class="variant-grid" id="variantGrid" style="display:none;">
+        <div class="variant" data-id="1">
+          <div class="visual v1"><span class="market-tag">UK · Global social</span></div>
+          <div class="body">
+            <div class="headline">Variant A — composed</div>
+            <div class="copy" contenteditable="true" spellcheck="false">6 more minutes on the board. Zero more minutes of doubt on his arm. It won't EVER let you down.</div>
+            <button class="pick" type="button">Select this variant</button>
+          </div>
+        </div>
+        <div class="variant" data-id="2">
+          <div class="visual v2"><span class="market-tag">Brazil</span></div>
+          <div class="body">
+            <div class="headline">Variant B — playful</div>
+            <div class="copy" contenteditable="true" spellcheck="false">Stoppage time. Full pressure. Still dry. Some officials just don't miss.</div>
+            <button class="pick" type="button">Select this variant</button>
+          </div>
+        </div>
+        <div class="variant" data-id="3">
+          <div class="visual v3"><span class="market-tag">India</span></div>
+          <div class="body">
+            <div class="headline">Variant C — understated</div>
+            <div class="copy" contenteditable="true" spellcheck="false">Nobody scripted this. We just happened to be there when it mattered.</div>
+            <button class="pick" type="button">Select this variant</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Publish + audit -->
+    <div>
+      <div class="panel">
+        <h2>Review &amp; publish</h2>
+        <div class="markets" id="markets">
+          <label class="market-row"><input type="checkbox" checked disabled /> UK · Global social</label>
+          <label class="market-row"><input type="checkbox" checked disabled /> Brazil</label>
+          <label class="market-row"><input type="checkbox" checked disabled /> India</label>
+          <label class="market-row"><input type="checkbox" checked disabled /> Southeast Asia</label>
+        </div>
+        <button class="btn btn-primary" id="approveBtn" disabled type="button">Select a variant to approve</button>
+        <button class="btn btn-ghost" id="recallBtn" type="button" style="display:none;">Recall published content</button>
+        <div class="status-banner" id="statusBanner"></div>
+        <div id="perfBlock" style="display:none;">
+          <div class="perf-row"><span class="k">Engagements</span><span class="v mono" id="perfEngagements">0</span></div>
+          <div class="perf-row"><span class="k">Sentiment</span><span class="v" id="perfSentiment">—</span></div>
+          <div class="perf-row"><span class="k">Playbook confidence</span><span class="v mono" id="perfConfidence">87%</span></div>
+        </div>
+      </div>
+      <div class="panel">
+        <h2>Audit log</h2>
+        <ul class="log" id="log"></ul>
+      </div>
+    </div>
+  </div>
+
+  <p class="footnote">Illustrative UI prototype for Techtonic Season 8 / Project NEXT — not connected to real Unilever systems or data. Mission clock is compressed to demonstrate the “under 4 hours” PULSE walkthrough interactively.</p>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  // ---- Theme toggle ----
+  var root = document.documentElement;
+  var toggle = document.getElementById("themeToggle");
+  toggle.addEventListener("click", function () {
+    var current = root.getAttribute("data-theme");
+    var next = current === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+  });
+
+  // ---- Simulated mission clock ----
+  // Real 4h20m journey compressed into ~150 real seconds while running,
+  // pausing naturally while waiting on the human reviewer.
+  var simSecondsElapsed = 4; // detection already happened at T+0:00:04
+  var totalTargetSeconds = 4 * 3600 + 20 * 60; // ~4h20m ceiling
+  var perTick = 90; // simulated seconds added per real 250ms tick while running
+  var clockRunning = true;
+  var clockEl = document.getElementById("clock");
+
+  function fmt(s) {
+    var h = Math.floor(s / 3600);
+    var m = Math.floor((s % 3600) / 60);
+    var sec = Math.floor(s % 60);
+    function pad(n) { return String(n).padStart(2, "0"); }
+    return "T+" + h + ":" + pad(m) + ":" + pad(sec);
+  }
+  function renderClock() { clockEl.textContent = fmt(simSecondsElapsed); }
+  renderClock();
+
+  var clockTimer = setInterval(function () {
+    if (!clockRunning) return;
+    simSecondsElapsed = Math.min(simSecondsElapsed + perTick, totalTargetSeconds);
+    renderClock();
+  }, 250);
+
+  function pauseClock() { clockRunning = false; clockEl.classList.add("paused"); }
+  function resumeClock() { clockRunning = true; clockEl.classList.remove("paused"); }
+
+  // ---- Audit log ----
+  var logEl = document.getElementById("log");
+  function logEvent(text) {
+    var li = document.createElement("li");
+    li.className = "new";
+    var t = document.createElement("span");
+    t.className = "t mono";
+    t.textContent = fmt(simSecondsElapsed);
+    var e = document.createElement("span");
+    e.className = "e";
+    e.textContent = text;
+    li.appendChild(t);
+    li.appendChild(e);
+    logEl.appendChild(li);
+    logEl.scrollTop = logEl.scrollHeight;
+  }
+
+  logEvent("Signal detected by Signal Radar (broadcast + social).");
+
+  // ---- Tiering sequence ----
+  var tierBadge = document.getElementById("tierBadge");
+  var fitBar = document.getElementById("fitBar");
+  var riskBar = document.getElementById("riskBar");
+  var fitLabel = document.getElementById("fitScoreLabel");
+  var riskLabel = document.getElementById("riskScoreLabel");
+
+  setTimeout(function () {
+    fitBar.style.width = "94%";
+    riskBar.style.width = "12%";
+    fitLabel.textContent = "94%";
+    riskLabel.textContent = "Low (12%)";
+    tierBadge.innerHTML = '<span class="dot"></span><span>TIER 1 · FAST-TRACK</span>';
+    logEvent("Classifier/Tiering Agent: matched playbook, scored Tier 1 (94% brand-fit, low risk).");
+  }, 1200);
+
+  // ---- Variant generation ----
+  var genStatus = document.getElementById("genStatus");
+  var variantGrid = document.getElementById("variantGrid");
+
+  setTimeout(function () {
+    genStatus.style.display = "none";
+    variantGrid.style.display = "grid";
+    logEvent("Copy, Visual & Localization Agents drafted 3 on-brand variants.");
+  }, 2600);
+
+  // ---- Variant selection ----
+  var selectedId = null;
+  var approveBtn = document.getElementById("approveBtn");
+
+  document.querySelectorAll(".variant").forEach(function (card) {
+    function select() {
+      document.querySelectorAll(".variant").forEach(function (c) { c.classList.remove("selected"); });
+      card.classList.add("selected");
+      selectedId = card.getAttribute("data-id");
+      approveBtn.disabled = false;
+      approveBtn.textContent = "Approve & publish (Tier 1 fast-track)";
+      pauseClock();
+      logEvent("Signal editor opened console — reviewing variant " + selectedId + ".");
+    }
+    card.addEventListener("click", function (ev) {
+      if (ev.target.closest(".copy") || ev.target.closest(".pick")) return;
+      select();
+    });
+    card.querySelector(".pick").addEventListener("click", function (ev) {
+      ev.stopPropagation();
+      select();
+    });
+    card.querySelector(".copy").addEventListener("input", function () {
+      if (card.classList.contains("selected")) {
+        logEvent("Editor edited copy on variant " + selectedId + ".");
+      }
+    });
+  });
+
+  // ---- Approve & publish ----
+  var statusBanner = document.getElementById("statusBanner");
+  var recallBtn = document.getElementById("recallBtn");
+  var perfBlock = document.getElementById("perfBlock");
+  var published = false;
+
+  approveBtn.addEventListener("click", function () {
+    if (published) return;
+    if (!selectedId) return;
+    resumeClock();
+    approveBtn.disabled = true;
+    approveBtn.textContent = "Publishing…";
+    logEvent("Approved by Signal Editor — publishing variant " + selectedId + " to 4 markets.");
+
+    setTimeout(function () {
+      published = true;
+      simSecondsElapsed = Math.max(simSecondsElapsed, totalTargetSeconds - 600);
+      renderClock();
+      pauseClock();
+      approveBtn.style.display = "none";
+      recallBtn.style.display = "block";
+      statusBanner.textContent = "Published to 4 markets at " + fmt(simSecondsElapsed) + " — under the 6-week baseline by ~40x.";
+      statusBanner.classList.add("show");
+      perfBlock.style.display = "block";
+      logEvent("Published across UK, Brazil, India, Southeast Asia.");
+      startPerformanceTicker();
+    }, 1400);
+  });
+
+  recallBtn.addEventListener("click", function () {
+    statusBanner.textContent = "Recalled — content pulled from all 4 markets. Kill-switch logged for audit.";
+    statusBanner.style.background = "var(--tier-crit-bg)";
+    statusBanner.style.color = "var(--tier-crit)";
+    statusBanner.style.borderColor = "color-mix(in srgb, var(--tier-crit) 35%, transparent)";
+    recallBtn.disabled = true;
+    logEvent("Kill-switch triggered — content recalled from all markets.");
+  });
+
+  function startPerformanceTicker() {
+    var engagements = 0;
+    var confidence = 87;
+    var engEl = document.getElementById("perfEngagements");
+    var sentEl = document.getElementById("perfSentiment");
+    var confEl = document.getElementById("perfConfidence");
+    logEvent("Evaluate loop started — live performance now feeding Brand Pulse Dashboard.");
+    var n = 0;
+    var perfTimer = setInterval(function () {
+      n++;
+      engagements += Math.floor(400 + Math.random() * 900);
+      engEl.textContent = engagements.toLocaleString();
+      sentEl.textContent = engagements > 3000 ? "94% positive" : "91% positive";
+      if (n === 4) {
+        confidence = 91;
+        confEl.textContent = confidence + "%";
+        logEvent("Learning Agent updated playbook confidence: 87% → 91%.");
+      }
+      if (n >= 8) clearInterval(perfTimer);
+    }, 900);
+  }
+})();
+</script>
