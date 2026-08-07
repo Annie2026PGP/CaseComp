@@ -202,8 +202,8 @@ textbox(s, 0.9, 2.62, 8.3, 1.5, "Designing a Better\nOrganization",
         size=44, color=CHARCOAL, bold=True, font=HEAD_FONT, line_spacing=1.02)
 rect(s, 0.92, 4.28, 1.6, 0.035, fill=ORANGE)
 textbox(s, 0.9, 4.5, 8.2, 0.9,
-        "An enterprise AI operating-model blueprint for StyleVerse Global —\n"
-        "automating 40% of routine work while protecting all 28,000 roles.",
+        "An enterprise AI operating-model blueprint for StyleVerse Global. It automates\n"
+        "40% of routine work and protects all 28,000 roles while doing it.",
         size=13.5, color=CHARCOAL, line_spacing=1.3)
 rich(s, 0.9, 5.55, 8.2, 0.6, [[
     {"text": "“Our next phase of growth depends on designing a better organization.”",
@@ -220,23 +220,24 @@ textbox(s, 0.9, 6.9, 7, 0.26, "Strategic consultant team, StyleVerse AI transfor
 # ===========================================================================
 s = add_slide()
 header(s, "EXECUTIVE SUMMARY  |  1 OF 2",
-       "AI should touch 82% of StyleVerse's work — and replace none of its 28,000 people")
+       "82% of StyleVerse's work should involve AI. None of the 28,000 people should lose a job over it.")
 
 rect(s, 0.5, 1.44, 12.33, 0.9, fill=CARD)
 rich(s, 0.72, 1.6, 11.9, 0.66, [[
-    {"text": "StyleVerse does not have a growth problem — it has a conversion problem. ",
+    {"text": "Revenue keeps growing at StyleVerse; profit hasn't kept pace. ",
      "size": 12.5, "bold": True},
-    {"text": "Insight becomes action too slowly because work, not talent, is mis-allocated. "
-             "We re-architect every role into three tiers, automate 40% of routine work, and "
-             "redeploy the released capacity into customer-facing work.",
+    {"text": "The gap comes from how slowly insight turns into action, because work — not talent — "
+             "is misallocated across the business. We re-architect every role into three tiers, "
+             "automate 40% of routine work, and move the capacity that frees up onto the "
+             "customer-facing jobs that actually drive the 15% growth target.",
      "size": 12.5},
 ]], line_spacing=1.22)
 
 stats = [
-    ("54%", "of all work is routine —\nnot the 48% Exhibit 4\naverages to (weighted\nby headcount)", ORANGE),
-    ("6,056", "FTE-equivalents of\ncapacity released —\nconverted, not cut,\nunder Zero-Layoff", ORANGE),
-    ("₹311 Cr", "annual run-rate value\nagainst a ₹200 Cr\none-time investment\n(payback < 12 months)", ORANGE),
-    ("13.1%", "EBITDA margin by FY26,\nup from 9.5% today —\non 15% revenue\ngrowth", ORANGE),
+    ("54%", "of all work is routine once\nweighted by headcount —\nExhibit 4's simple average\nsays 48%", ORANGE),
+    ("6,056", "FTE-equivalents released.\nZero-Layoff means\nconverted, not cut", ORANGE),
+    ("₹311 Cr", "in yearly value against a\n₹200 Cr one-off spend.\nPayback under 12 months", ORANGE),
+    ("13.1%", "EBITDA margin by FY26, up\nfrom 9.5% now, riding the\n15% revenue growth target", ORANGE),
 ]
 x = 0.5
 for val, lab, c in stats:
@@ -248,23 +249,26 @@ for val, lab, c in stats:
 rect(s, 0.5, 4.28, 6.05, 2.5, fill=WHITE, line_color=RULE, line_w=1.0)
 textbox(s, 0.72, 4.44, 5.6, 0.26, "WHAT WE FOUND", size=10.5, color=ORANGE, bold=True)
 rich(s, 0.72, 4.76, 5.62, 1.95, [
-    [{"text": "The operating model is the constraint. ", "size": 11, "bold": True},
-     {"text": "Every function optimises locally; nobody owns the handoffs between them.", "size": 11}],
-    [{"text": "Routine work is under-counted. ", "size": 11, "bold": True},
-     {"text": "The two largest functions are the most routine-heavy, so the true load is 54%, not 48%.", "size": 11}],
-    [{"text": "The biggest prize is the least ready. ", "size": 11, "bold": True},
-     {"text": "Retail Operations ranks #2 on value but scores 1.35/5 on adoption readiness (fear 4.3/5).", "size": 11}],
+    [{"text": "Every function has optimised itself in isolation, and the ", "size": 11},
+     {"text": "handoffs between them belong to nobody", "size": 11, "bold": True},
+     {"text": " — that's the actual constraint, more than any one function's performance.", "size": 11}],
+    [{"text": "The 48% routine-work figure in Exhibit 4 is a plain average across six functions. "
+              "Weight it by headcount and it becomes 54%, because the two biggest functions are "
+              "also the most routine-heavy.", "size": 11}],
+    [{"text": "Retail Operations is the case's #2 priority by value, and dead last on readiness "
+              "— 1.35 out of 5, fear at 4.3.", "size": 11}],
 ], line_spacing=1.2, space_after=8)
 
 rect(s, 6.78, 4.28, 6.05, 2.5, fill=WHITE, line_color=RULE, line_w=1.0)
 textbox(s, 7.0, 4.44, 5.6, 0.26, "WHAT WE RECOMMEND", size=10.5, color=ORANGE, bold=True)
 rich(s, 7.0, 4.76, 5.62, 1.95, [
-    [{"text": "Phase 1: Marketing & CX, Merchandising, Retail Ops ", "size": 11, "bold": True},
-     {"text": "— but Retail enters as a 20-store readiness pilot, not a 200-store rollout.", "size": 11}],
-    [{"text": "Federated hub-and-spoke AI CoE ", "size": 11, "bold": True},
-     {"text": "— a central platform and standards hub with embedded squads in each function.", "size": 11}],
-    [{"text": "Brand-differentiated governance. ", "size": 11, "bold": True},
-     {"text": "Maison Luxe stays human-led by design; SpeedStyle goes AI-forward. One policy would damage one of them.", "size": 11}],
+    [{"text": "Scale Marketing & CX and Merchandising first. Retail Operations joins them, but "
+              "only as a 20-store pilot — not a 200-store rollout on day one.", "size": 11}],
+    [{"text": "One federated CoE: ", "size": 11, "bold": True},
+     {"text": "a central hub for platform and standards, with squads embedded inside each function.",
+      "size": 11}],
+    [{"text": "Governance isn't one policy for five brands. Maison Luxe needs to stay human-led; "
+              "SpeedStyle can go AI-forward. Swap those two and you damage both.", "size": 11}],
 ], line_spacing=1.2, space_after=8)
 
 footer(s, "1",
@@ -276,7 +280,7 @@ footer(s, "1",
 # ===========================================================================
 s = add_slide()
 header(s, "EXECUTIVE SUMMARY  |  2 OF 2",
-       "Four deliverables, one integrated answer — sequenced to build trust before scale")
+       "Four deliverables, sequenced so trust comes before scale")
 
 table(s, 0.5, 1.5, 12.33, 2.72,
       ["Deliverable", "Our answer", "The number that proves it", "Slide"],
@@ -303,13 +307,11 @@ picture(s, f"{ASSETS}/roadmap.png", 0.5, 4.72, 7.35, 2.05)
 rect(s, 8.1, 4.72, 4.73, 2.05, fill=CARD)
 textbox(s, 8.32, 4.88, 4.3, 0.26, "WHY THIS SEQUENCE", size=10.5, color=ORANGE, bold=True)
 rich(s, 8.32, 5.2, 4.32, 1.45, [
-    [{"text": "Highest-readiness functions go first so the first visible AI story inside "
-              "StyleVerse is a ", "size": 10.5},
-     {"text": "success, not a threat", "size": 10.5, "bold": True},
-     {"text": ".", "size": 10.5}],
-    [{"text": "Manufacturing is last despite the largest headcount — fear is 4.5/5 and "
-              "digital skill 1.8/5. Sequencing it early would confirm employees' worst fear "
-              "and stall the whole programme.", "size": 10.5}],
+    [{"text": "We start with the functions already comfortable with AI, so the first thing "
+              "employees see is a win, not a threat.", "size": 10.5}],
+    [{"text": "Manufacturing has the largest headcount of any function and it still comes last. "
+              "Fear there sits at 4.5 out of 5, digital skill at 1.8. Going in early would confirm "
+              "exactly what people are afraid of.", "size": 10.5}],
 ], line_spacing=1.18, space_after=7)
 
 footer(s, "2", "Phase-1 selection scored on the five criteria named in the case: business impact, "
@@ -320,7 +322,7 @@ footer(s, "2", "Phase-1 selection scored on the five criteria named in the case:
 # ===========================================================================
 s = add_slide()
 header(s, "BODY  |  B1  ·  DIAGNOSIS",
-       "Growth is not the problem. The gap between insight and action is.")
+       "Insight is taking too long to become action, and that lag is what's capping growth")
 
 cards = [
     ("SPEED", "14 weeks", "trend-to-store, against\n<4 weeks for digitally\nnative competitors"),
@@ -336,39 +338,37 @@ for tag, big, desc in cards:
     textbox(s, x + 0.22, 2.46, 2.55, 0.72, desc, size=10.5, color=CHARCOAL, line_spacing=1.2)
     x += 3.11
 
-rect(s, 0.5, 3.42, 12.33, 1.12, fill=CHARCOAL)
-rich(s, 0.78, 3.62, 11.8, 0.8, [
-    [{"text": "The common cause:  ", "size": 12.5, "color": GOLD, "bold": True},
-     {"text": "each function has optimised its own systems and processes — so the handoffs "
-              "between them are owned by nobody and bridged manually.",
-      "size": 12.5, "color": WHITE}],
-    [{"text": "AI applied function-by-function would automate the silos instead of dissolving them. "
-              "The unit of redesign has to be the workflow, not the department.",
-      "size": 11.5, "color": LIGHTGREY}],
-], line_spacing=1.2, space_after=6)
+rect(s, 0.5, 3.4, 12.33, 1.3, fill=CHARCOAL)
+rich(s, 0.78, 3.54, 11.8, 1.05, [
+    [{"text": "Each function built its own systems and processes over the years. Nobody ended up "
+              "owning the ", "size": 11.5, "color": WHITE},
+     {"text": "handoffs between them", "size": 11.5, "color": GOLD, "bold": True},
+     {"text": ", so people bridge the gaps by hand, every single time.", "size": 11.5, "color": WHITE}],
+    [{"text": "Automate each function on its own and you'd just automate the silos — the "
+              "fragmentation would still be there, only faster. Redesign has to happen at the "
+              "level of the workflow, not the department.",
+      "size": 11, "color": LIGHTGREY}],
+], line_spacing=1.18, space_after=5)
 
 rect(s, 0.5, 4.74, 6.05, 2.04, fill=CARD)
-textbox(s, 0.72, 4.9, 5.6, 0.26, "AND THE PRIZE IS BIGGER THAN IT LOOKS", size=10.5,
+textbox(s, 0.72, 4.9, 5.6, 0.26, "THE PRIZE IS ALSO BIGGER THAN IT LOOKS", size=10.5,
         color=ORANGE, bold=True)
 rich(s, 0.72, 5.22, 5.62, 1.4, [
-    [{"text": "Exhibit 4 reports an organisation average of 48% routine work. That is an ",
-      "size": 11},
-     {"text": "unweighted", "size": 11, "bold": True},
-     {"text": " mean of the six functions.", "size": 11}],
-    [{"text": "Weighted by headcount it is 54.1%", "size": 11, "bold": True, "color": ORANGE},
-     {"text": " — because the two largest functions (Manufacturing 11,000 at 60%; Retail 10,000 "
-              "at 55%) are the most routine-heavy of all.", "size": 11}],
+    [{"text": "Exhibit 4's 48% is a plain average across six functions. Weight it by headcount "
+              "instead — Manufacturing (11,000 people, 60% routine) and Retail (10,000, 55%) pull "
+              "hardest — and it becomes ", "size": 11},
+     {"text": "54.1%.", "size": 11, "bold": True, "color": ORANGE}],
 ], line_spacing=1.2, space_after=7)
 
 rect(s, 6.78, 4.74, 6.05, 2.04, fill=CARD)
 textbox(s, 7.0, 4.9, 5.6, 0.26, "WHY THAT MATTERS", size=10.5, color=ORANGE, bold=True)
 rich(s, 7.0, 5.22, 5.62, 1.4, [
-    [{"text": "A 5.7-point understatement is roughly ", "size": 11},
+    [{"text": "That 5.7-point gap works out to roughly ", "size": 11},
      {"text": "1,600 FTE-equivalents", "size": 11, "bold": True},
-     {"text": " of routine work missing from the plan — larger than the entire Corporate function.",
+     {"text": " of routine work — more people than the entire Corporate function — that a plan "
+              "built on the headline number simply misses. The platform, the reskilling budget, "
+              "the redeployment pipeline: all of it ends up sized too small.",
       "size": 11}],
-    [{"text": "Sizing the programme off the headline average would under-scope the platform, "
-              "the reskilling budget and the redeployment pipeline.", "size": 11}],
 ], line_spacing=1.2, space_after=7)
 
 footer(s, "3", "Source: case Exhibits 3 and 4. Weighted routine load = Σ(headcount × routine %) ÷ 28,000 = 54.1%.")
@@ -378,7 +378,7 @@ footer(s, "3", "Source: case Exhibits 3 and 4. Weighted routine load = Σ(headco
 # ===========================================================================
 s = add_slide()
 header(s, "BODY  |  B2  ·  DELIVERABLE 1",
-       "Every activity passes the same three gates — so the classification is defensible, not arbitrary")
+       "We ran every activity through the same three gates, so the calls hold up to scrutiny")
 
 gates = [
     ("GATE 1", "Rule stability", "Is the activity governed by stable, codifiable rules,\nat high volume and low variance?", ORANGE),
@@ -410,19 +410,20 @@ table(s, 0.5, 3.22, 12.33, 1.62,
       col_widths=[2.3, 2.65, 3.9, 3.48], font_size=10.5, header_size=10.5)
 
 rect(s, 0.5, 5.06, 12.33, 1.72, fill=CARD)
-textbox(s, 0.72, 5.22, 11.9, 0.26, "WHERE WE CHALLENGE EXHIBIT 4 — as the case invites",
+textbox(s, 0.72, 5.22, 11.9, 0.26, "WHERE WE PUSHED BACK ON EXHIBIT 4 (as the case invites us to)",
         size=10.5, color=ORANGE, bold=True)
 rich(s, 0.72, 5.54, 5.7, 1.1, [
-    [{"text": "Retail Operations — the human share is a design choice, not a constant. ",
-      "size": 11, "bold": True},
-     {"text": "Exhibit 4 shows 20% creative/strategic. Once AI removes stock look-ups and admin, "
-              "we deliberately redesign the role upward to ~35% relationship work.", "size": 11}],
+    [{"text": "Retail Operations: ", "size": 11, "bold": True},
+     {"text": "the 20% creative/strategic share in Exhibit 4 isn't fixed. Once AI takes stock "
+              "look-ups and admin off associates' plates, we push that figure up to roughly "
+              "35% relationship work, deliberately, as a design choice.", "size": 11}],
 ], line_spacing=1.2, space_after=6)
 rich(s, 6.62, 5.54, 5.9, 1.1, [
-    [{"text": "Manufacturing — routine ≠ automatable. ", "size": 11, "bold": True},
-     {"text": "60% of its work is routine, but quality inspection carries safety and regulatory "
-              "consequence (Gate 2). Most of it is Augmentable — AI-assisted vision with human "
-              "sign-off — not Automatable.", "size": 11}],
+    [{"text": "Manufacturing ", "size": 11, "bold": True},
+     {"text": "is where routine and automatable pull apart. 60% of the work is routine, but "
+              "quality inspection carries real safety and regulatory stakes (Gate 2). Most of it "
+              "lands Augmentable — AI-assisted vision, human sign-off — rather than fully "
+              "automated.", "size": 11}],
 ], line_spacing=1.2, space_after=6)
 
 footer(s, "4", "Classification applied to all six functions in case Exhibit 4; activity-level detail in Appendix A1.")
@@ -432,7 +433,7 @@ footer(s, "4", "Classification applied to all six functions in case Exhibit 4; a
 # ===========================================================================
 s = add_slide()
 header(s, "BODY  |  B3  ·  DELIVERABLE 1",
-       "AI touches 82% of the work and replaces 0% of the people")
+       "How the 22/60/18 split plays out across six functions")
 
 picture(s, f"{ASSETS}/task_audit.png", 0.5, 1.46, 8.15, 3.08)
 
@@ -449,8 +450,9 @@ for pct, lab, c in splits:
     yy += 0.52
 rect(s, 9.12, 3.62, 3.5, 0.012, fill=RULE)
 rich(s, 9.12, 3.76, 3.55, 0.7, [
-    [{"text": "Only the 22% is executed by AI alone. The 60% is where humans get faster and "
-              "better — and it is the largest prize.", "size": 10.5}],
+    [{"text": "Only that 22% runs on AI by itself. The 60% Augmentable slice is where people get "
+              "faster and better at their jobs, and it's the biggest prize of the three by far.",
+      "size": 10.5}],
 ], line_spacing=1.2)
 
 picture(s, f"{ASSETS}/capacity.png", 0.5, 4.72, 6.6, 2.06)
@@ -458,15 +460,15 @@ picture(s, f"{ASSETS}/capacity.png", 0.5, 4.72, 6.6, 2.06)
 rect(s, 7.35, 4.72, 5.48, 2.06, fill=CHARCOAL)
 textbox(s, 7.57, 4.88, 5.05, 0.26, "THE ZERO-LAYOFF ARITHMETIC", size=10.5, color=GOLD, bold=True)
 rich(s, 7.57, 5.2, 5.06, 1.45, [
-    [{"text": "15,140 ", "size": 12, "color": WHITE, "bold": True},
-     {"text": "FTE-equivalents of routine work exist today. Automating 40% of it releases ",
+    [{"text": "Routine work adds up to ", "size": 11, "color": LIGHTGREY},
+     {"text": "15,140", "size": 12, "color": WHITE, "bold": True},
+     {"text": " FTE-equivalents today. Automate 40% of that and ", "size": 11, "color": LIGHTGREY},
+     {"text": "6,056", "size": 12, "color": GOLD, "bold": True},
+     {"text": " come free — 21.6% of the whole workforce.", "size": 11, "color": LIGHTGREY}],
+    [{"text": "None of that is a headcount cut. Zero-Layoff means the ₹200 Cr buys the ",
       "size": 11, "color": LIGHTGREY},
-     {"text": "6,056 FTE-equivalents", "size": 12, "color": GOLD, "bold": True},
-     {"text": " — 21.6% of the workforce.", "size": 11, "color": LIGHTGREY}],
-    [{"text": "Under Zero-Layoff this is capacity ", "size": 11, "color": LIGHTGREY},
-     {"text": "converted, not cost cut", "size": 11, "color": WHITE, "bold": True},
-     {"text": ". The ₹200 Cr does not buy a smaller payroll — it buys the same payroll doing "
-              "higher-value work.", "size": 11, "color": LIGHTGREY}],
+     {"text": "same payroll doing better work", "size": 11, "color": WHITE, "bold": True},
+     {"text": ", not a smaller payroll.", "size": 11, "color": LIGHTGREY}],
 ], line_spacing=1.2, space_after=7)
 
 footer(s, "5", "Automatable = 40% of routine work per the case constraint. Augmentable = residual routine "
@@ -477,7 +479,7 @@ footer(s, "5", "Automatable = 40% of routine work per the case constraint. Augme
 # ===========================================================================
 s = add_slide()
 header(s, "BODY  |  B4  ·  DELIVERABLE 2",
-       "The highest-value function is the least ready — so value alone cannot set the sequence")
+       "Value alone can't set the sequence, because the highest-value function is also the least ready")
 
 picture(s, f"{ASSETS}/readiness_matrix.png", 0.42, 1.46, 6.6, 4.4)
 
@@ -495,17 +497,19 @@ table(s, 7.2, 1.46, 5.63, 2.5,
 
 rect(s, 7.2, 4.14, 5.63, 1.14, fill=CARD)
 rich(s, 7.42, 4.3, 5.2, 0.86, [
-    [{"text": "Our model independently reproduces leadership's own ranking", "size": 11, "bold": True},
-     {"text": " — the two “Very High” functions score #1 and #2, and “High” scores #3. "
-              "The model does not overturn management judgment; it explains and sizes it.", "size": 11}],
+    [{"text": "Run the numbers independently and you land back on leadership's own ranking: both "
+              "“Very High” functions come out #1 and #2, “High” comes out #3. The model isn't "
+              "here to overrule that instinct — it's here to show why it's right, and by how much.",
+      "size": 11}],
 ], line_spacing=1.2)
 
 rect(s, 7.2, 5.44, 5.63, 1.34, fill=WHITE, line_color=ROSE, line_w=1.5)
 textbox(s, 7.42, 5.6, 5.2, 0.26, "THE READINESS PARADOX", size=10.5, color=ROSE, bold=True)
 rich(s, 7.42, 5.92, 5.22, 0.78, [
-    [{"text": "Retail Operations: ", "size": 11, "bold": True},
-     {"text": "10,000 people, 200 stores, #2 on value — and 1.35/5 on readiness, with fear at "
-              "4.3/5 and digital skill at 2.2/5. Deploying at scale here first would fail.", "size": 11}],
+    [{"text": "Retail Operations has 10,000 people across 200 stores and ranks #2 on value. Its "
+              "readiness score is 1.35 out of 5, fear sits at 4.3. Rolling this out at full scale "
+              "first isn't ambitious — it's a way to guarantee the programme's first headline is "
+              "a failed pilot.", "size": 11}],
 ], line_spacing=1.2)
 
 footer(s, "6", "Priority score = 0.25×business impact + 0.20×customer value + 0.15×workforce scale "
@@ -549,10 +553,11 @@ for name, meta, c, what, metric in phase1:
 
 rect(s, 0.5, 6.05, 12.33, 0.73, fill=CHARCOAL)
 rich(s, 0.78, 6.2, 11.8, 0.5, [[
-    {"text": "Deferred deliberately:  ", "size": 11.5, "color": GOLD, "bold": True},
-    {"text": "Manufacturing & Quality (11,000 people) carries the largest routine load but the "
-             "lowest readiness — it is Phase 3, paired with EPR traceability where AI creates new "
-             "compliance roles rather than displacing existing ones.",
+    {"text": "Manufacturing & Quality has the largest routine load of any function and the lowest "
+             "readiness score on the list. ", "size": 11.5, "color": WHITE},
+    {"text": "That's exactly why it waits for Phase 3, ", "size": 11.5, "color": GOLD, "bold": True},
+    {"text": "paired with EPR traceability work — where AI adds new compliance roles instead of "
+             "touching the inspection jobs people already have.",
      "size": 11.5, "color": WHITE}],
 ], line_spacing=1.2)
 
@@ -564,7 +569,7 @@ footer(s, "7", "Pilot gate: adoption ≥70% of associates using the tool weekly 
 # ===========================================================================
 s = add_slide()
 header(s, "BODY  |  B6  ·  DELIVERABLE 2",
-       "The workflow, not the org chart, is the unit of redesign")
+       "We're redesigning around the workflow. The org chart can mostly stay put.")
 
 textbox(s, 0.5, 1.44, 6.0, 0.26, "TODAY — SEQUENTIAL HANDOFFS", size=10.5, color=GREY, bold=True)
 steps_now = ["Designer researches\ntrends manually", "Merchandising reviews\nhistorical sales",
@@ -607,14 +612,14 @@ table(s, 0.5, 3.16, 12.33, 2.28,
       col_widths=[1.6, 6.9, 3.83], font_size=10.5, header_size=10.5)
 
 rect(s, 0.5, 5.6, 12.33, 1.18, fill=CARD)
-textbox(s, 0.72, 5.76, 11.9, 0.26, "THE ONE STRUCTURAL RULE", size=10.5, color=ORANGE, bold=True)
+textbox(s, 0.72, 5.76, 11.9, 0.26, "THE ONE STRUCTURAL RULE WE DON'T BREAK", size=10.5,
+        color=ORANGE, bold=True)
 rich(s, 0.72, 6.06, 11.9, 0.6, [[
-    {"text": "No AI system is deployed into a workflow that still requires a manual handoff to "
-             "complete. ", "size": 11.5, "bold": True},
-    {"text": "Automating either side of a broken handoff makes the handoff the bottleneck and "
-             "delivers none of the cycle-time gain — this is precisely how StyleVerse's current "
-             "fragmentation was created.", "size": 11.5},
-]], line_spacing=1.2)
+    {"text": "We don't deploy AI into a workflow that still needs a manual handoff to finish. "
+             "Automate one side of a broken handoff and the handoff itself just becomes the new "
+             "bottleneck — none of the cycle-time gain shows up. This is, more or less, exactly "
+             "how StyleVerse ended up fragmented in the first place.", "size": 11.5}],
+], line_spacing=1.2)
 
 footer(s, "8", "Cycle-time target of 8 weeks assumes concurrent design–merchandising review replaces "
                 "three sequential approval cycles; benchmark competitors operate at under 4 weeks.")
@@ -624,7 +629,7 @@ footer(s, "8", "Cycle-time target of 8 weeks assumes concurrent design–merchan
 # ===========================================================================
 s = add_slide()
 header(s, "BODY  |  B7  ·  DELIVERABLE 2",
-       "Recommendation: a federated hub-and-spoke CoE — centralised standards, embedded delivery")
+       "Our recommendation: a federated hub-and-spoke CoE, centralised on standards, embedded on delivery")
 
 blocks = [
     ("THE HUB", "AI Centre of Excellence", "~60 FTE", ORANGE,
@@ -661,11 +666,13 @@ table(s, 0.5, 3.86, 12.33, 1.62,
 
 rect(s, 0.5, 5.68, 12.33, 1.1, fill=CHARCOAL)
 rich(s, 0.78, 5.86, 11.8, 0.74, [[
-    {"text": "The deciding argument:  ", "size": 11.5, "color": GOLD, "bold": True},
-    {"text": "StyleVerse's current problem was caused by functions independently introducing "
-             "“their own systems, processes and ways of working.” A fully embedded AI model "
-             "would repeat that mistake with higher stakes — five brands each training their own "
-             "models on their own data, with no shared governance and no shared learning.",
+    {"text": "Here's what settles it. StyleVerse's current mess exists because functions each "
+             "introduced ", "size": 11.5, "color": WHITE},
+    {"text": "“their own systems, processes and ways of working,”", "size": 11.5, "color": GOLD,
+     "italic": True},
+    {"text": " in the case's own words. Go fully embedded on AI and you'd repeat that mistake, "
+             "only bigger: five brands training five sets of models on five sets of data, no "
+             "shared governance, nobody learning from anybody else's mistakes.",
      "size": 11.5, "color": WHITE}],
 ], line_spacing=1.22)
 
@@ -713,20 +720,21 @@ rect(s, 7.1, 4.2, 5.73, 1.7, fill=WHITE, line_color=ROSE, line_w=1.5)
 textbox(s, 7.32, 4.34, 5.3, 0.26, "KNOWLEDGE CAPTURE IS A RACE AGAINST ATTRITION",
         size=10.5, color=ROSE, bold=True)
 rich(s, 7.32, 4.64, 5.32, 1.2, [
-    [{"text": "Retail tenure is 1.7 years at 42% attrition — institutional knowledge is already "
-              "leaking faster than it is being recorded.", "size": 11}],
-    [{"text": "We capture tacit know-how from the high-tenure functions (Corporate 5.1 yrs, "
-              "Design 4.6 yrs) into structured knowledge bases ", "size": 11},
-     {"text": "in Phase 0", "size": 11, "bold": True},
-     {"text": " — before automation changes the roles that hold it.", "size": 11}],
+    [{"text": "Average tenure in Retail is 1.7 years against 42% attrition. Institutional "
+              "knowledge is already leaking out faster than anyone's writing it down.", "size": 11}],
+    [{"text": "So ", "size": 11},
+     {"text": "Phase 0", "size": 11, "bold": True},
+     {"text": " starts by pulling tacit know-how out of the longest-tenured functions — "
+              "Corporate at 5.1 years, Design at 4.6 — into structured knowledge bases, before "
+              "automation touches the roles that hold it.", "size": 11}],
 ], line_spacing=1.18, space_after=6)
 
 rect(s, 0.5, 6.0, 12.33, 0.78, fill=CARD)
 rich(s, 0.72, 6.16, 11.9, 0.52, [[
-    {"text": "The Zero-Layoff mechanism:  ", "size": 11.5, "bold": True, "color": ORANGE},
-    {"text": "a written redeployment guarantee, an internal talent marketplace matching released "
-             "capacity to open roles on skills rather than titles, and a 90-day paid transition "
-             "window with the learning journey completed before the role changes.", "size": 11.5},
+    {"text": "In practice, Zero-Layoff means three things: ", "size": 11.5, "bold": True, "color": ORANGE},
+    {"text": "a written redeployment guarantee, an internal talent marketplace that matches "
+             "people to open roles by skill rather than job title, and a 90-day paid transition "
+             "window where the learning journey finishes before the role actually changes.", "size": 11.5},
 ]], line_spacing=1.2)
 
 footer(s, "10", "Scale column = FTE-equivalents released per function (Appendix A1). Learning-hour targets "
@@ -783,11 +791,11 @@ rich(s, 7.32, 4.38, 5.32, 1.4, [
 
 rect(s, 0.5, 6.0, 12.33, 0.78, fill=CHARCOAL)
 rich(s, 0.72, 6.16, 11.9, 0.52, [[
-    {"text": "Why brand-differentiated governance is the right call:  ", "size": 11.5,
-     "color": GOLD, "bold": True},
-    {"text": "Maison Luxe earns the highest NPS (62) and the lowest return rate (8%) precisely "
-             "because customers believe a person made it. Applying SpeedStyle's AI posture there "
-             "would automate away the thing being sold.", "size": 11.5, "color": WHITE},
+    {"text": "Maison Luxe has the best NPS in the portfolio (62) and the lowest return rate (8%), "
+             "and both numbers exist because customers believe a person made the product. ",
+     "size": 11.5, "color": WHITE},
+    {"text": "Give it SpeedStyle's AI posture and you'd be automating away the exact thing people "
+             "are paying for.", "size": 11.5, "color": GOLD, "bold": True},
 ]], line_spacing=1.2)
 
 footer(s, "11", "References: European Parliament. (2024). Regulation (EU) 2024/1689 (AI Act). "
@@ -799,7 +807,7 @@ footer(s, "11", "References: European Parliament. (2024). Regulation (EU) 2024/1
 # ===========================================================================
 s = add_slide()
 header(s, "BODY  |  B10  ·  DELIVERABLE 4",
-       "Fear is measurable, so it is manageable — we treat it as the primary delivery risk")
+       "Fear turns out to be measurable. That's why we treat it as the top delivery risk.")
 
 table(s, 0.5, 1.46, 6.35, 2.02,
       ["Function", "Fear", "Intervention"],
@@ -830,10 +838,10 @@ picture(s, f"{ASSETS}/investment.png", 0.5, 3.94, 7.5, 1.34)
 
 rect(s, 8.25, 3.94, 4.58, 1.34, fill=CARD)
 rich(s, 8.47, 4.08, 4.15, 1.05, [[
-    {"text": "22% on people is deliberate. ", "size": 11, "bold": True},
-    {"text": "Most transformations underfund reskilling and then discover the technology "
-             "landed but the behaviour did not. Zero-Layoff is only credible if the "
-             "redeployment budget is real.", "size": 11}],
+    {"text": "The 22% going to people isn't a rounding error. Most transformations shortchange "
+             "reskilling, then wonder why the technology worked but nobody's behaviour changed. "
+             "Zero-Layoff only means something if the redeployment budget is real money.",
+     "size": 11}],
 ], line_spacing=1.18)
 
 textbox(s, 0.5, 5.42, 12.33, 0.26, "THE VALUE THIS UNLOCKS", size=10.5, color=ORANGE, bold=True)
@@ -843,8 +851,8 @@ rect(s, 8.45, 5.66, 4.38, 1.16, fill=CHARCOAL)
 rich(s, 8.67, 5.78, 4.0, 0.98, [
     [{"text": "₹311 Cr", "size": 17, "color": GOLD, "bold": True, "font": HEAD_FONT},
      {"text": "  annual run-rate", "size": 11, "color": WHITE}],
-    [{"text": "against ₹200 Cr one-time — payback under 12 months, and EBITDA margin from "
-              "9.5% to 13.1%.", "size": 10.5, "color": LIGHTGREY}],
+    [{"text": "against a ₹200 Cr one-time spend. Payback lands under 12 months; EBITDA margin "
+              "moves from 9.5% to 13.1%.", "size": 10.5, "color": LIGHTGREY}],
 ], line_spacing=1.18, space_after=4)
 
 footer(s, "12", "Value bridge assumptions: markdown reduction at 35% pass-through of the ₹380 Cr pool; "
@@ -924,14 +932,14 @@ table(s, 0.5, 1.5, 12.33, 2.35,
       ],
       col_widths=[2.5, 8.3, 1.53], font_size=10, header_size=10)
 rich(s, 0.5, 4.07, 12.33, 1.7, [
-    [{"text": "Resulting EBITDA. ", "size": 10.5, "bold": True},
-     {"text": "FY24 EBITDA = ₹5,600 Cr × 9.5% = ₹532 Cr. Adding ₹311 Cr gives ₹843 Cr. On FY26 revenue "
-              "of ₹6,440 Cr (15% growth) that is a 13.1% margin.", "size": 10.5}],
-    [{"text": "Stated limitations. ", "size": 10.5, "bold": True},
-     {"text": "These are directional planning estimates built only from the case exhibits, not audited "
-              "figures. Under Zero-Layoff, no labour-cost saving is claimed anywhere in this bridge — the "
-              "6,056 FTE-equivalents released are redeployed, and their value appears only through the "
-              "business outcomes above.", "size": 10.5}],
+    [{"text": "FY24 EBITDA works out to ₹5,600 Cr × 9.5% = ₹532 Cr. Add the ₹311 Cr and you get "
+              "₹843 Cr. Against FY26 revenue of ₹6,440 Cr (15% growth), that's a 13.1% margin.",
+      "size": 10.5}],
+    [{"text": "One limitation worth stating plainly: ", "size": 10.5, "bold": True},
+     {"text": "these are directional planning estimates built only from the case exhibits, not "
+              "audited figures. And under Zero-Layoff, no labour-cost saving is claimed anywhere in "
+              "this bridge — the 6,056 FTE-equivalents released are redeployed, so their value shows "
+              "up only through the business outcomes above.", "size": 10.5}],
 ], line_spacing=1.2, space_after=8)
 footer(s, "A3", "All calculations reproducible via analysis/task_audit_model.py in the submission repository.")
 
